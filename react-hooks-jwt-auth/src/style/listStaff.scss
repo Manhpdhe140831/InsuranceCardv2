@@ -1,0 +1,147 @@
+.container_liststaff {
+    // background-color: rgb(148, 148, 148);
+    padding: 100px;
+}
+
+.content-table {
+    background-color: #fff;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    min-width: 80%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #bbbbbb;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+    color: #000;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 30px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #1f7ebd;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #1f7ebd;
+}
+
+.container-search_liststaff {
+    width: 50%;
+    padding: 10px;
+    margin-left: auto;
+}
+
+.main_search {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    display: flex;
+    width: 60%;
+    margin: auto;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.input_liststaff {
+    width: 100% !important;
+    margin: 2px !important;
+    border: none !important;
+}
+
+.button-search_liststaff {
+    margin: 2px;
+    width: 100px;
+    background-color: #bbbbbb;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.button-search_liststaff:hover {
+    background-color: #838282;
+    color: #fff;
+}
+
+.button-search_liststaff:focus {
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+.edit-delete_staff {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hover-pointer {
+    cursor: pointer;
+}
+
+.modalCst {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-edit {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container_modal {
+    background: #fff;
+    width: 900px;
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    position: relative;
+    animation: modalFadeIn ease 0.5s;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.modal-edit.open {
+    display: flex;
+}
+
+.img-motorbike {
+    max-width: 200px;
+    max-height: 200px;
+}
