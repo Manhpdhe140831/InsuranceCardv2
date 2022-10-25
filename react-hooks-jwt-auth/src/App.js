@@ -12,6 +12,7 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
+import HomePage from "./view/HomePage"
 
 import EventBus from "./common/EventBus";
 
@@ -125,8 +126,8 @@ const App = () => {
           <Route path="/admin" element={<BoardAdmin />} />
         </Routes>
       </div>
-
-    </div>
+      <HomePage/>
+    </div> 
   );
 };
 
