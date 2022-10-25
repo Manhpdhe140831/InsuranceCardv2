@@ -1,7 +1,7 @@
 .container-create-staff {
     font-size: 17px;
     background-color:   rgb(196, 188, 188);
-    padding: 10%;
+    padding: 7%;
 }
 
 .container-create-staff h1 {
@@ -17,7 +17,7 @@
 .main-create-staff {
     background-color: rgb(255, 255, 255);
     padding: 80px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .flex-profile {
@@ -54,18 +54,18 @@
 
 .btn-create-staff button {
     height: 50px;
-    border: 2px solid #fff;
-    background: #1373b4;
-    border-radius: 25px;
+    border: 2px solid rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
     font-size: 20px;
-    color: #e9f4fb;
+    color: #000000;
     font-weight: 700;
     cursor: pointer;
     outline: none;
 }
 
 .btn-create-staff button:hover {
-    background-color: #2691d9;
+    background-color: rgb(196, 188, 188);
     opacity: 0.8;
     transition: .5s;
 }
