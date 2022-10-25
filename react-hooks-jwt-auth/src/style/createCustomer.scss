@@ -1,0 +1,84 @@
+.container-create-Cus {
+    font-size: 17px;
+    background-color: rgb(196, 188, 188);
+    padding: 10%;
+}
+
+.container-create-Cus h1 {
+    margin: 0;
+}
+
+.flex-container-profile {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.main-create-Cus {
+    background-color: rgb(255, 255, 255);
+    padding: 80px;
+    border-radius: 20px;
+}
+
+.flex-profile {
+    width: 100%;
+}
+
+.left-profile {
+    padding-right: 20px;
+}
+
+.container-create-Cus input:not([type=radio]) {
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    border-radius: 5px;  
+}
+
+.container button:hover {
+    opacity: 0.8;
+}
+
+.btn-create-Cus {
+    display: flex;
+    margin-top: 70px;
+    justify-content: space-around;
+}
+
+.btn-create-Cus button {
+    width: 30%;
+}
+
+.btn-create-Cus button {
+    height: 50px;
+    border: 2px solid #fff;
+    background: #1373b4;
+    border-radius: 25px;
+    font-size: 20px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-create-Cus button:hover {
+    background-color: #2691d9;
+    opacity: 0.8;
+    transition: .5s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.container-create-Cus h1 {
+    font-size: xxx-large;
+    text-align: center;
+    margin-bottom: 50px;
+}
