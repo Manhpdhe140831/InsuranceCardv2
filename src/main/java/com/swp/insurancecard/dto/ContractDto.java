@@ -41,5 +41,31 @@ public class ContractDto {
         }
 
     }
+
+    public ContractDto(Double price, Date datePayment, Double price2, Date datePayment2){
+        this.FPF = price;
+        this.FPFDate = datePayment;
+        this.SPF = price2;
+        this.SPFDate = datePayment2;
+    }
+
+    public ContractDto(Long id, String code){
+        this.id = id;
+        this.code = code;
+    }
+
+    public ContractDto(long id, String code, Date beginDate, Date endDate, double priceContract, double FPF, double SPF, Date FPFDate, Date SPFDate, Date contractDate, User accountDto) {
+        this.id = id;
+        this.code = code;
+        this.beginDate = beginDate;
+        this.endDate = endDate;
+        this.priceContract = priceContract;
+        this.FPF = FPF;
+        this.SPF = SPF;
+        this.FPFDate = FPFDate;
+        this.SPFDate = SPFDate;
+        this.contractDate = contractDate;
+        this.accountDto = accountDto;
+    }
 }
 

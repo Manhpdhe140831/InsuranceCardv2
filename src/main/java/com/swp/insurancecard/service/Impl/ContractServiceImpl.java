@@ -193,4 +193,21 @@ public class ContractServiceImpl implements ContractService {
         return null;
     }
 
+    @Override
+    public List<ContractDto> getPaymentHistory(Long id) {
+        List<ContractDto> list = new ArrayList<>();
+
+        List<Contract> listFPF = repository.getPF(id);
+        for (Contract item1: listFPF
+             ) {
+             list.add(new ContractDto(item1.getFPF(), item1.getFPFDate(), item1.getSPF(), item1.getSPFDate()));
+        }
+
+
+
+
+
+        return list;
+    }
+
 }

@@ -56,4 +56,6 @@ public class ContractController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
+
+
 }

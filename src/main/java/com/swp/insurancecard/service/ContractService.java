@@ -24,4 +24,6 @@ public interface ContractService {
     ContractDto getContractById(Long id);
 
     ContractDto renewContract(ContractDto contractDto, Long id);
+
+    List<ContractDto> getPaymentHistory(Long id);
 }
