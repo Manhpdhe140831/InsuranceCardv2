@@ -1,0 +1,86 @@
+.container-create-contract {
+    font-size: 17px;
+    background-color: #172439;
+    padding: 5%;
+  }
+  
+  .container-create-contract h1 {
+    margin: 0;
+  }
+  
+  .flex-container-profile {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .main-create-contract {
+    background-color: #fff;
+    padding: 80px;
+    border-radius: 1px;
+  }
+  
+  .flex-profile {
+    width: 100%;
+  }
+  
+  .left-profile {
+    padding-right: 20px;
+  }
+  
+  .container-create-contract input:not([type='radio']) {
+    padding: 12px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    border-radius: 1px;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+  }
+  
+  .container button:hover {
+    opacity: 0.8;
+  }
+  
+  .btn-create-contract {
+    display: flex;
+    margin-top: 70px;
+    justify-content: space-around;
+  }
+  
+  .btn-create-contract button {
+    width: 30%;
+  }
+  
+  .btn-create-contract button {
+    height: 50px;
+    border: 2px solid #fff;
+    background: #172439;
+    border-radius: 1px;
+    font-size: 20px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .btn-create-contract button:hover {
+    background-color: #334179;
+    opacity: 0.8;
+    transition: 0.5s;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .container-create-contract h1 {
+    font-size: xxx-large;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
