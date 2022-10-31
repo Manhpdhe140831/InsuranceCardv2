@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/createCustomer.scss';
+import '../style/createCustomer.scss';
 import {
     BsFillPersonFill,
     BsFillCalendarEventFill,
@@ -13,46 +13,35 @@ import {
 
 const GMale = 'male';
 const GFemale = 'female';
-const CreateCus = () => {
-    const [accountCus, setAccountCus] = useState({
+const Create = () => {
+    const [profile, setProfile] = useState({
         username: "",
         password: "",
-    });
-
-    const [profileCus, setProfileCus] = useState({
         name: '',
         gender: '',
         birthday: '',
-        folk: '',
-        phone: '',
         email: '',
+        address: '',
+        phone: '',
     });
-    const [addressCus, setAddressCus] = useState({
-        country: '',
-        city: '',
-        district: '',
-        street: '',
-    });
-    const handleGetUserName = (user) => {
-        setAccountCus({ ...accountCus, username: user });
-    };
+    
 
     return (
         <div>
             <div className="container-create-Cus">
                 <div className="main-create-Cus">
                     <h1>Create Customer</h1>
-                    <div className="Account">
+                    <div className="Profile">
                         <h2>Account</h2>
                         <h4>
                             <BsFillPersonFill className="icon" />
                             Username:{" "}
                             <input
                                 placeholder="enter username"
-                                value={accountCus.username}
+                                value={profile.username}
                                 onChange={(e) => {
-                                    setAccountCus({
-                                        ...accountCus,
+                                    setProfile({
+                                        ...profile,
                                         username: e.target.value,
                                     });
                                 }}
@@ -62,11 +51,11 @@ const CreateCus = () => {
                             <BsShieldLockFill className="icon" /> Password:{" "}
                             <input
                                 type="password"
-                                value={accountCus.password}
+                                value={profile.password}
                                 placeholder="enter password"
                                 onChange={(e) => {
-                                    setAccountCus({
-                                        ...accountCus,
+                                    setProfile({
+                                        ...profile,
                                         password: e.target.value,
                                     });
                                 }}
@@ -81,24 +70,11 @@ const CreateCus = () => {
                                     <BsFillPersonFill className="icon" /> Name:{' '}
                                     <input
                                         placeholder="enter name"
-                                        value={profileCus.name}
+                                        value={profile.name}
                                         onChange={(e) => {
-                                            setProfileCus({
-                                                ...profileCus,
+                                            setProfile({
+                                                ...profile,
                                                 name: e.target.value,
-                                            });
-                                        }}
-                                    />
-                                </h4>
-                                <h4>
-                                    <BsFillPeopleFill className="input" /> Folk:{" "}
-                                    <input
-                                        placeholder="enter folk"
-                                        value={profileCus.folk}
-                                        onChange={(e) => {
-                                            setProfileCus({
-                                                ...profileCus,
-                                                folk: e.target.value,
                                             });
                                         }}
                                     />
@@ -110,7 +86,7 @@ const CreateCus = () => {
                                     type="radio"
                                     name="gender"
                                     onChange={(e) => {
-                                        setProfileCus({ ...profileCus, gender: GMale });
+                                        setProfile({ ...profile, gender: GMale });
                                     }}
                                 />{' '}
                                 MALE
@@ -118,7 +94,7 @@ const CreateCus = () => {
                                     type="radio"
                                     name="gender"
                                     onChange={(e) => {
-                                        setProfileCus({ ...profileCus, gender: GFemale });
+                                        setProfile({ ...profile, gender: GFemale });
                                     }}
                                 />{' '}
                                 FEMALE
@@ -128,10 +104,10 @@ const CreateCus = () => {
                                     <BsFillCalendarEventFill className="icon" /> Birthday:{' '}
                                     <input
                                         type="date"
-                                        value={profileCus.birthday}
+                                        value={profile.birthday}
                                         onChange={(e) => {
-                                            setProfileCus({
-                                                ...profileCus,
+                                            setProfile({
+                                                ...profile,
                                                 birthday: e.target.value,
                                             });
                                         }}
@@ -142,10 +118,10 @@ const CreateCus = () => {
                                     <input
                                         type="number"
                                         placeholder="enter phone number"
-                                        value={profileCus.phone}
+                                        value={profile.phone}
                                         onChange={(e) => {
-                                            setProfileCus({
-                                                ...profileCus,
+                                            setProfile({
+                                                ...profile,
                                                 phone: parseInt(e.target.value),
                                             });
                                         }}
@@ -156,10 +132,10 @@ const CreateCus = () => {
                                     <input
                                         type="email"
                                         placeholder="enter email"
-                                        value={profileCus.email}
+                                        value={profile.email}
                                         onChange={(e) => {
-                                            setProfileCus({
-                                                ...profileCus,
+                                            setProfile({
+                                                ...profile,
                                                 email: e.target.value,
                                             });
                                         }}
@@ -168,51 +144,19 @@ const CreateCus = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="Address">
+                    <div className="Profile">
                         <h2>Addresss</h2>
                         <h4>
-                            <BsGeoAltFill className="icon" /> Country:{' '}
+                            <BsGeoAltFill className="icon" /> Address:{' '}
                             <input
-                                placeholder="enter country"
-                                value={addressCus.country}
+                                placeholder="enter Address"
+                                value={profile.address}
                                 onChange={(e) => {
-                                    setAddressCus({ ...addressCus, country: e.target.value });
+                                    setProfile({ ...profile, address: e.target.value });
                                 }}
                             />
                         </h4>
-                        <h4>
-                            <BsGeoAltFill className="icon" /> City:{' '}
-                            <input
-                                placeholder="enter city"
-                                value={addressCus.city}
-                                onChange={(e) => {
-                                    setAddressCus({ ...addressCus, city: e.target.value });
-                                }}
-                            />
-                        </h4>
-                        <h4>
-                            <BsGeoAltFill className="icon" /> District:{' '}
-                            <input
-                                placeholder="enter district "
-                                value={addressCus.district}
-                                onChange={(e) => {
-                                    setAddressCus({
-                                        ...addressCus,
-                                        district: e.target.value,
-                                    });
-                                }}
-                            />
-                        </h4>
-                        <h4>
-                            <BsGeoAltFill className="icon" /> Street:{' '}
-                            <input
-                                placeholder="enter street"
-                                value={addressCus.street}
-                                onChange={(e) => {
-                                    setAddressCus({ ...addressCus, street: e.target.value });
-                                }}
-                            />
-                        </h4>
+                        
                     </div>
                     <div className="btn-create-Cus">
                         <button>Create</button>
@@ -223,5 +167,5 @@ const CreateCus = () => {
         </div>
     );
 };
-export default CreateCus;
+export default Create;
 

@@ -1,57 +1,47 @@
 import { useState } from "react";
-import "../styles/createStaff.scss";
+import "../style/createStaff.scss";
 import {
-    BsFillPersonFill,
-    BsShieldLockFill,
-    BsFillCalendarEventFill,
-    BsFillTelephoneFill,
-    BsEnvelopeFill,
-    BsFillPeopleFill,
-    BsGenderAmbiguous,
-    BsGeoAltFill,
+  BsFillPersonFill,
+  BsShieldLockFill,
+  BsFillCalendarEventFill,
+  BsFillTelephoneFill,
+  BsEnvelopeFill,
+  BsFillPeopleFill,
+  BsGenderAmbiguous,
+  BsGeoAltFill,
 } from "react-icons/bs";
 
-const GMale = "male";
-const GFemale = "female";
-const CreateStaff = () => {
-    const [accountStaff, setAccountStaff] = useState({
+const GMale = 'male';
+const GFemale = 'female';
+const Create = () => {
+    const [profile, setProfile] = useState({
         username: "",
         password: "",
+        name: '',
+        gender: '',
+        birthday: '',
+        email: '',
+        address: '',
+        phone: '',
     });
-    const [profileStaff, setProfileStaff] = useState({
-        name: "",
-        gender: "",
-        birthday: "",
-        folk: "",
-        phone: "",
-        email: "",
-    });
-    const [addressStaff, setAddressStaff] = useState({
-        country: "",
-        city: "",
-        district: "",
-        street: "",
-    });
+    
 
-    const handleGetUserName = (user) => {
-        setAccountStaff({ ...accountStaff, username: user });
-    };
     return (
         <div>
             <div className="container-create-staff">
                 <div className="main-create-staff">
                     <h1>Create Staff</h1>
-                    <div className="Account">
+                    <div className="Profile">
                         <h2>Account</h2>
                         <h4>
                             <BsFillPersonFill className="icon" />
                             Username:{" "}
                             <input
                                 placeholder="enter username"
-                                value={accountStaff.username}
+                                value={profile.username}
                                 onChange={(e) => {
-                                    setAccountStaff({
-                                        ...accountStaff,
+                                    setProfile({
+                                        ...profile,
                                         username: e.target.value,
                                     });
                                 }}
@@ -61,11 +51,11 @@ const CreateStaff = () => {
                             <BsShieldLockFill className="icon" /> Password:{" "}
                             <input
                                 type="password"
-                                value={accountStaff.password}
+                                value={profile.password}
                                 placeholder="enter password"
                                 onChange={(e) => {
-                                    setAccountStaff({
-                                        ...accountStaff,
+                                    setProfile({
+                                        ...profile,
                                         password: e.target.value,
                                     });
                                 }}
@@ -77,28 +67,14 @@ const CreateStaff = () => {
                         <div className="flex-container-profile">
                             <div className="left-profile flex-profile">
                                 <h4>
-                                    <BsFillPersonFill className="icon" />
-                                    Name:{" "}
+                                    <BsFillPersonFill className="icon" /> Name:{' '}
                                     <input
                                         placeholder="enter name"
-                                        value={profileStaff.name}
+                                        value={profile.name}
                                         onChange={(e) => {
-                                            setProfileStaff({
-                                                ...profileStaff,
+                                            setProfile({
+                                                ...profile,
                                                 name: e.target.value,
-                                            });
-                                        }}
-                                    />
-                                </h4>
-                                <h4>
-                                    <BsFillPeopleFill className="input" /> Folk:{" "}
-                                    <input
-                                        placeholder="enter folk"
-                                        value={profileStaff.folk}
-                                        onChange={(e) => {
-                                            setProfileStaff({
-                                                ...profileStaff,
-                                                folk: e.target.value,
                                             });
                                         }}
                                     />
@@ -110,56 +86,56 @@ const CreateStaff = () => {
                                     type="radio"
                                     name="gender"
                                     onChange={(e) => {
-                                        setProfileStaff({ ...profileStaff, gender: GMale });
+                                        setProfile({ ...profile, gender: GMale });
                                     }}
-                                />{" "}
+                                />{' '}
                                 MALE
                                 <input
                                     type="radio"
                                     name="gender"
                                     onChange={(e) => {
-                                        setProfileStaff({ ...profileStaff, gender: GFemale });
+                                        setProfile({ ...profile, gender: GFemale });
                                     }}
-                                />{" "}
+                                />{' '}
                                 FEMALE
                             </div>
                             <div className="right-profile flex-profile">
                                 <h4>
-                                    <BsFillCalendarEventFill className="icon" /> Birthday:{" "}
+                                    <BsFillCalendarEventFill className="icon" /> Birthday:{' '}
                                     <input
                                         type="date"
-                                        value={profileStaff.birthday}
+                                        value={profile.birthday}
                                         onChange={(e) => {
-                                            setProfileStaff({
-                                                ...profileStaff,
+                                            setProfile({
+                                                ...profile,
                                                 birthday: e.target.value,
                                             });
                                         }}
                                     />
                                 </h4>
                                 <h4>
-                                    <BsFillTelephoneFill className="icon" /> Phone:{" "}
+                                    <BsFillTelephoneFill className="icon" /> Phone:{' '}
                                     <input
                                         type="number"
                                         placeholder="enter phone number"
-                                        value={profileStaff.phone}
+                                        value={profile.phone}
                                         onChange={(e) => {
-                                            setProfileStaff({
-                                                ...profileStaff,
+                                            setProfile({
+                                                ...profile,
                                                 phone: parseInt(e.target.value),
                                             });
                                         }}
                                     />
                                 </h4>
                                 <h4>
-                                    <BsEnvelopeFill className="icon" /> Email:{" "}
+                                    <BsEnvelopeFill className="icon" /> Email:{' '}
                                     <input
                                         type="email"
                                         placeholder="enter email"
-                                        value={profileStaff.email}
+                                        value={profile.email}
                                         onChange={(e) => {
-                                            setProfileStaff({
-                                                ...profileStaff,
+                                            setProfile({
+                                                ...profile,
                                                 email: e.target.value,
                                             });
                                         }}
@@ -168,51 +144,19 @@ const CreateStaff = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="Address">
+                    <div className="Profile">
                         <h2>Addresss</h2>
                         <h4>
-                            <BsGeoAltFill className="icon" /> Country:{" "}
+                            <BsGeoAltFill className="icon" /> Address:{' '}
                             <input
-                                placeholder="enter country"
-                                value={addressStaff.country}
+                                placeholder="enter Address"
+                                value={profile.address}
                                 onChange={(e) => {
-                                    setAddressStaff({ ...addressStaff, country: e.target.value });
+                                    setProfile({ ...profile, address: e.target.value });
                                 }}
                             />
                         </h4>
-                        <h4>
-                            <BsGeoAltFill className="icon" /> City:{" "}
-                            <input
-                                placeholder="enter city"
-                                value={addressStaff.city}
-                                onChange={(e) => {
-                                    setAddressStaff({ ...addressStaff, city: e.target.value });
-                                }}
-                            />
-                        </h4>
-                        <h4>
-                            <BsGeoAltFill className="icon" /> District:{" "}
-                            <input
-                                placeholder="enter district "
-                                value={addressStaff.district}
-                                onChange={(e) => {
-                                    setAddressStaff({
-                                        ...addressStaff,
-                                        district: e.target.value,
-                                    });
-                                }}
-                            />
-                        </h4>
-                        <h4>
-                            <BsGeoAltFill className="icon" /> Street:{" "}
-                            <input
-                                placeholder="enter street"
-                                value={addressStaff.street}
-                                onChange={(e) => {
-                                    setAddressStaff({ ...addressStaff, street: e.target.value });
-                                }}
-                            />
-                        </h4>
+                        
                     </div>
                     <div className="btn-create-staff">
                         <button>Create</button>
@@ -223,4 +167,4 @@ const CreateStaff = () => {
         </div>
     );
 };
-export default CreateStaff;
+export default Create;
