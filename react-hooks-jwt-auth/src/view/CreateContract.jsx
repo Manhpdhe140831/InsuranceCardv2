@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import '../styles/createContract.scss'
+import '../style/createContract.scss'
 import {
     BsFillPersonFill,
     BsFillCalendarEventFill,
