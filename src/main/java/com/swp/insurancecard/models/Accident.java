@@ -19,9 +19,9 @@ public class Accident {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String accidentCode;
-    private String urlImageAccident;
-    private Date accidentDate;
+    private String code;
+    private String image;
+    private Date date;
     private String description;
     private boolean status;
     @ManyToOne(fetch = FetchType.LAZY)

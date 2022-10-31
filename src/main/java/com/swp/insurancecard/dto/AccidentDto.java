@@ -15,22 +15,28 @@ import java.util.List;
 @Setter
 public class AccidentDto {
     private Long id;
-    private String accidentCode;
-    private String urlImageAccident;
-    private Date accidentDate;
+    private String code;
+    private String image;
+    private Date date;
     private String description;
     private boolean status;
     private User user;
 
     public AccidentDto(Accident accident){
         this.setId(accident.getId());
-        this.setAccidentDate(accident.getAccidentDate());
-        this.setUrlImageAccident(accident.getUrlImageAccident());
-        this.setAccidentCode(accident.getAccidentCode());
+        this.setDate(accident.getDate());
+        this.setImage(accident.getImage());
+        this.setCode(accident.getCode());
         this.setDescription(accident.getDescription());
         this.setStatus(accident.isStatus());
         if (accident.getUser() != null){
             user = new User(accident.getUser());
         }
     }
+
+    public AccidentDto (Date date, String code){
+        this.setCode(code);
+        this.setDate(date);
+    }
+
 }
