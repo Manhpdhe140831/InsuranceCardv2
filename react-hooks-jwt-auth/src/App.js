@@ -13,6 +13,7 @@ import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import HomePage from "./view/HomePage"
+import CreateUser from "./view/CreateStaff";
 
 import EventBus from "./common/EventBus";
 
@@ -124,10 +125,11 @@ const App = () => {
           <Route path="/customer" element={<BoardUser />} />
           <Route path="/staff" element={<BoardModerator />} />
           <Route path="/admin" element={<BoardAdmin />} />
+          <Route path="/createUser" element={<CreateUser />} />
         </Routes>
       </div>
-      <HomePage/>
-    </div> 
+      <HomePage />
+    </div>
   );
 };
 

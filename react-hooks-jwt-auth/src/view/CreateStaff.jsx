@@ -1,19 +1,19 @@
 import { useState } from "react";
 import "../style/createStaff.scss";
 import {
-  BsFillPersonFill,
-  BsShieldLockFill,
-  BsFillCalendarEventFill,
-  BsFillTelephoneFill,
-  BsEnvelopeFill,
-  BsFillPeopleFill,
-  BsGenderAmbiguous,
-  BsGeoAltFill,
+    BsFillPersonFill,
+    BsShieldLockFill,
+    BsFillCalendarEventFill,
+    BsFillTelephoneFill,
+    BsEnvelopeFill,
+    BsFillPeopleFill,
+    BsGenderAmbiguous,
+    BsGeoAltFill,
 } from "react-icons/bs";
 
 const GMale = 'male';
 const GFemale = 'female';
-const Create = () => {
+const CreateUser = () => {
     const [profile, setProfile] = useState({
         username: "",
         password: "",
@@ -24,7 +24,7 @@ const Create = () => {
         address: '',
         phone: '',
     });
-    
+
 
     return (
         <div>
@@ -156,7 +156,7 @@ const Create = () => {
                                 }}
                             />
                         </h4>
-                        
+
                     </div>
                     <div className="btn-create-staff">
                         <button>Create</button>
@@ -167,4 +167,4 @@ const Create = () => {
         </div>
     );
 };
-export default Create;
+export default CreateUser;
