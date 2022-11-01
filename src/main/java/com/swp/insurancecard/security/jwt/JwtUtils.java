@@ -27,6 +27,10 @@ public class JwtUtils {
 
     return Jwts.builder()
         .setSubject((userPrincipal.getUsername()))
+        .claim("id", userPrincipal.getId())
+        .claim("username", userPrincipal.getUsername())
+        .claim("email", userPrincipal.getEmail())
+        .claim("role", userPrincipal.getAuthorities().stream().findFirst().get().toString())
         .setIssuedAt(new Date())
         .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
         .signWith(SignatureAlgorithm.HS512, jwtSecret)
@@ -54,5 +58,19 @@ public class JwtUtils {
     }
 
     return false;
+  }
+
+  public Claims getAllClaimsFromToken(String token) {
+    Claims claims;
+    try {
+      claims = Jwts.parser()
+              .setSigningKey(jwtSecret)
+              .parseClaimsJws(token)
+              .getBody();
+    } catch (Exception e) {
+      //LOGGER.error("Could not get all claims Token from passed token");
+      claims = null;
+    }
+    return claims;
   }
 }
