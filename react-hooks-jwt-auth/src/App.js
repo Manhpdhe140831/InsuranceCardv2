@@ -13,12 +13,16 @@ import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import HomePage from "./view/HomePage"
-import CreateUser from "./view/CreateStaff";
+import CreateUser from "./view/CreateUser";
+import Contract from "./view/Contract";
+import ListCustomer from "./view/ListCustomer";
 
 import EventBus from "./common/EventBus";
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
+  const [showCreateStaff, setShowCreateStaff] = useState(false);
+  const [showManageContract, setShowManageContract] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
@@ -29,6 +33,8 @@ const App = () => {
       setCurrentUser(user);
       setShowModeratorBoard(user.roles.includes("ROLE_STAFF"));
       setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+      setShowCreateStaff(user.roles.includes("ROLE_ADMIN"));
+      setShowManageContract(user.roles.includes("ROLE_ADMIN"));
     }
 
     EventBus.on("logout", () => {
@@ -44,6 +50,8 @@ const App = () => {
     AuthService.logout();
     setShowModeratorBoard(false);
     setShowAdminBoard(false);
+    setShowCreateStaff(false);
+    setShowManageContract(false);
     setCurrentUser(undefined);
   };
 
@@ -80,6 +88,20 @@ const App = () => {
             <li className="nav-item">
               <Link to={"/customer"} className="nav-link">
                 Customer
+              </Link>
+            </li>
+          )}
+          {showCreateStaff && (
+            <li className="nav-item">
+              <Link to={"/create-user"} className="nav-link">
+                Manage Staff
+              </Link>
+            </li>
+          )}
+          {showManageContract && (
+            <li className="nav-item">
+              <Link to={"/contract-customer"} className="nav-link">
+                Manage Contract
               </Link>
             </li>
           )}
@@ -125,7 +147,8 @@ const App = () => {
           <Route path="/customer" element={<BoardUser />} />
           <Route path="/staff" element={<BoardModerator />} />
           <Route path="/admin" element={<BoardAdmin />} />
-          <Route path="/createUser" element={<CreateUser />} />
+          <Route path="/create-user" element={<CreateUser />} />
+          <Route path="/contract-customer" element={<ListCustomer />} />
         </Routes>
       </div>
       <HomePage />

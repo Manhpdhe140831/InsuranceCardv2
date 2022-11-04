@@ -53,7 +53,13 @@ public class User {
   }
 
   public User(User user){
-
+    this.id = user.getId();
+    this.username = user.getUsername();
+    this.phone = user.getPhone();
+    this.dateOfBirth = user.getDateOfBirth();
+    this.gender = user.getGender();
+    this.address = user.getAddress();
+    this.roles = user.getRoles();
   }
 
   public User(String username, String email, String password) {
