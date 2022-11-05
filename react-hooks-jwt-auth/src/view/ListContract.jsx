@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Contract from './Contract';
 import { BsSearch } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import '../style/listContractCustomer.scss';
-ListContractCustomer.propTypes = {
+import '../style/listStaff.scss';
+ListContract.propTypes = {
   data: PropTypes.array,
 };
 
-ListContractCustomer.defaultProps = {
+ListContract.defaultProps = {
   data: [
     {
       contractCode: '321asd',
@@ -24,7 +24,7 @@ ListContractCustomer.defaultProps = {
     },
   ],
 };
-function ListContractCustomer({ data, handleCloseModal }) {
+function ListContract({ data, handleCloseModal }) {
   const [searchStr, setSearchStr] = useState('');
   const [searchList, setSearchList] = useState(data);
   const listData = data;
@@ -38,13 +38,10 @@ function ListContractCustomer({ data, handleCloseModal }) {
 
   return (
     <React.Fragment>
-      <div className="container_listcontract-customer">
-        <div className="container-border-customer">
-          <div className="icon-close" onClick={handleCloseModal}>
-            <GrClose size={34} />
-          </div>
-          <div className="container-search_listcontract-customer">
-            <h3>customerName</h3>
+      
+      <div className="container_listcontract">
+      <a className="button-create-contract" href="">Create New Contract</a>
+          <div className="container-search_liststaff">
             <div className="main_search">
               <input
                 className="input_liststaff"
@@ -91,10 +88,9 @@ function ListContractCustomer({ data, handleCloseModal }) {
             </div>
           </div>
         )} */}
-        </div>
       </div>
     </React.Fragment>
   );
 }
 
-export default ListContractCustomer;
+export default ListContract;

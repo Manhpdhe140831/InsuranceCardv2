@@ -4,7 +4,7 @@ import { BsSearch } from 'react-icons/bs';
 import Customer from './Customer';
 import EditListCustomer from './EditListCustomer';
 import ListContractCustomer from './ListContractCustomer';
-
+import '../style/listStaff.scss';
 ListCustomer.propTypes = {
   data: PropTypes.array,
 };

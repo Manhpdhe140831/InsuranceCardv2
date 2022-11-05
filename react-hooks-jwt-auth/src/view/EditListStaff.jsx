@@ -282,7 +282,6 @@ function EditListStaff({ staff, handleCloseModal }) {
                   <div className="text pl-3">
                     <p>
                       <span>Phone:</span> {profileStaff.phone}
-                      <a href="tel://1234567920">+ 1235 2355 98</a>
                     </p>
                   </div>
                 </div>
@@ -303,7 +302,6 @@ function EditListStaff({ staff, handleCloseModal }) {
                   <div className="text pl-3">
                     <p>
                       <span>Email:</span> {profileStaff.email}
-                      <a href="mailto:info@yoursite.com">info@yoursite.com</a>
                     </p>
                   </div>
                 </div>
@@ -314,7 +312,6 @@ function EditListStaff({ staff, handleCloseModal }) {
                   <div className="text pl-3">
                     <p>
                       <span>Folk:</span> {profileStaff.folk}
-                      <a href="mailto:info@yoursite.com">info@yoursite.com</a>
                     </p>
                   </div>
                 </div>
@@ -325,7 +322,6 @@ function EditListStaff({ staff, handleCloseModal }) {
                   <div className="text pl-3">
                     <p>
                       <span>Birthday:</span> {profileStaff.birthday}
-                      <a href="mailto:info@yoursite.com">info@yoursite.com</a>
                     </p>
                   </div>
                 </div>

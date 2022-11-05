@@ -145,3 +145,15 @@ select:focus {
     max-width: 200px;
     max-height: 200px;
 }
+.button-create-contract{
+    color: #000;
+    font-weight: bold;
+    padding: 20px;
+    background-color: #bbbbbb;
+    border-radius: 5px;
+}
+.button-create-contract:hover{
+    cursor: pointer;
+    background-color: #727070;
+    color: rgb(255, 255, 255);
+}

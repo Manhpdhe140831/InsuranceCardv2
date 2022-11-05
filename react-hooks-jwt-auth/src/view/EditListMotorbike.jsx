@@ -117,7 +117,6 @@ function EditListMotorbike({motorbike, handleCloseModal}) {
                   <div className="text pl-3">
                     <p>
                       <span>licensePlates:</span> {motorbikeDetail.licensePlates}
-                      <a href="tel://1234567920">+ 1235 2355 98</a>
                     </p>
                   </div>
                 </div>                
@@ -128,7 +127,7 @@ function EditListMotorbike({motorbike, handleCloseModal}) {
                   <div className="text pl-3">
                     <p>
                       {/* {motorbikeDetail.picture} */}
-                      <img className="img-motorbike" src="https://i.kym-cdn.com/entries/icons/original/000/037/349/Screenshot_14.jpg" alt="" />
+                      <img className="img-motorbike" src={motorbikeDetail.picture} alt="" />
                     </p>
                   </div>
                 </div>

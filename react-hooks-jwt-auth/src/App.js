@@ -18,6 +18,7 @@ import Contract from "./view/Contract";
 import ListCustomer from "./view/ListCustomer";
 
 import EventBus from "./common/EventBus";
+import ListContract from "./view/ListContract";
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -149,6 +150,7 @@ const App = () => {
           <Route path="/admin" element={<BoardAdmin />} />
           <Route path="/create-user" element={<CreateUser />} />
           <Route path="/contract-customer" element={<ListCustomer />} />
+          {/* <Route path="/list-contract" element={<ListContract />} /> */}
         </Routes>
       </div>
       <HomePage />

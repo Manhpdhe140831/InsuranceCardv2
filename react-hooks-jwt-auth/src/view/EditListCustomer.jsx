@@ -278,7 +278,6 @@ function EditListCustomer({ customer, handleCloseModal }) {
                   <div className="text pl-3">
                     <p>
                       <span>Phone:</span> {profileCustomer.phone}
-                      <a href="tel://1234567920">+ 1235 2355 98</a>
                     </p>
                   </div>
                 </div>
@@ -299,7 +298,6 @@ function EditListCustomer({ customer, handleCloseModal }) {
                   <div className="text pl-3">
                     <p>
                       <span>Email:</span> {profileCustomer.email}
-                      <a href="mailto:info@yoursite.com">info@yoursite.com</a>
                     </p>
                   </div>
                 </div>
@@ -310,7 +308,6 @@ function EditListCustomer({ customer, handleCloseModal }) {
                   <div className="text pl-3">
                     <p>
                       <span>Folk:</span> {profileCustomer.folk}
-                      <a href="mailto:info@yoursite.com">info@yoursite.com</a>
                     </p>
                   </div>
                 </div>
@@ -321,7 +318,6 @@ function EditListCustomer({ customer, handleCloseModal }) {
                   <div className="text pl-3">
                     <p>
                       <span>Birthday:</span> {profileCustomer.birthday}
-                      <a href="mailto:info@yoursite.com">info@yoursite.com</a>
                     </p>
                   </div>
                 </div>

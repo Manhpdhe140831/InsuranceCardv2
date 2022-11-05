@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import EditListMotorbike from './EditListMotorbike';
 import Motorbike from './Motorbike';
+import '../style/listStaff.scss';
 ListMotorbike.propTypes = {};
 ListMotorbike.defaultProps = {
   data: [
