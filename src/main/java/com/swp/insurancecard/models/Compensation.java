@@ -1,11 +1,17 @@
 package com.swp.insurancecard.models;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Getter@Setter
 public class Compensation {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String code;
     private boolean status;
