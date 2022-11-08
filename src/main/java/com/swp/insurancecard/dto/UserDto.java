@@ -19,4 +19,7 @@ public class UserDto {
     private String gender;
     private String address;
     private Set<Role> roles = new HashSet<>();
+
+
+
 }

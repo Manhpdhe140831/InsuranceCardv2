@@ -34,4 +34,12 @@ public class CompensationDto {
             accidentDto = new AccidentDto(compensation.getAccident());
         }
     }
+
+    public CompensationDto(String code, boolean status, Date dateRequest, User user, AccidentDto accidentDto) {
+        this.code = code;
+        this.status = status;
+        this.dateRequest = dateRequest;
+        this.user = user;
+        this.accidentDto = accidentDto;
+    }
 }

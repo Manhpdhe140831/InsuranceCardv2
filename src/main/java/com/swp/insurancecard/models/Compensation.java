@@ -27,4 +27,7 @@ public class Compensation {
     @JoinColumn()
     private Accident accident;
 
+
+
+
 }

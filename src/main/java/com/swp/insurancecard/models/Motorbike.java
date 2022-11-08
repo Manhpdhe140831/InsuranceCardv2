@@ -7,7 +7,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Table(name = "tbl_motoBike")
 @Entity
@@ -35,8 +35,11 @@ public class Motorbike {
     private String frameNumber;
     @Column(name = "engineNumber")
     private String engineNumber;
-
     private  String image;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 }
