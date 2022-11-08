@@ -1,4 +1,5 @@
 import axios from "axios";
+import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:8080/api/auth/";
 
@@ -8,6 +9,11 @@ const register = (username, email, password) => {
     email,
     password,
   });
+};
+
+const signup = (profile) => {
+  // return axios.post(API_URL + "signup", { profile, headers: authHeader() });
+  return axios.post(API_URL + "signup", profile, { headers: authHeader() })
 };
 
 const login = (username, password) => {
@@ -38,6 +44,7 @@ const AuthService = {
   login,
   logout,
   getCurrentUser,
+  signup
 };
 
 export default AuthService;

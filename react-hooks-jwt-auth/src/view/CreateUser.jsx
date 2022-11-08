@@ -10,7 +10,7 @@ import {
     BsGenderAmbiguous,
     BsGeoAltFill,
 } from "react-icons/bs";
-
+import AuthService from "../services/auth.service";
 const GMale = 'male';
 const GFemale = 'female';
 const CreateUser = () => {
@@ -25,6 +25,14 @@ const CreateUser = () => {
         phone: '',
     });
 
+    const handleOnlickCreate = () => {
+        AuthService.signup(profile).then(
+            () => {
+                console.log("create success");
+            }
+        )
+        console.log(profile);
+    }
 
     return (
         <div>
@@ -159,7 +167,7 @@ const CreateUser = () => {
 
                     </div>
                     <div className="btn-create-staff">
-                        <button>Create</button>
+                        <button onClick={() => handleOnlickCreate()}>Create</button>
                         <button>Cancel</button>
                     </div>
                 </div>
