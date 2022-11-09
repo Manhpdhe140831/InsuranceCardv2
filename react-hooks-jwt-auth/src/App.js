@@ -58,7 +58,7 @@ const App = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-info">
+      <nav className="navbar navbar-expand navbar-dark bg-info" style={{backgroundColor:"#50769a !important;"}}>
         <Link to={"/"} className="navbar-brand">
           Insurance Card
         </Link>
@@ -155,6 +155,13 @@ const App = () => {
         </Routes>
       </div>
       <HomePage />
+          {/* <div className="modalCst">
+            <div className="modal-edit">
+              <Login
+                // handleCloseModal={handleCloseModal}
+              />
+            </div>
+          </div> */}
     </div>
   );
 };
