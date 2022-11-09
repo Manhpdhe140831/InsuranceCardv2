@@ -4,6 +4,7 @@ import useStyles from '../style/HomepageStyle';
 import AboutAccordion from '../components/AboutAccordion'
 import Button from '@mui/material/Button';
 import HomeTabs from '../components/HomeTabs';
+import "../style/Footer.scss"
 
 
 function HomePage(props) {
@@ -97,8 +98,28 @@ function HomePage(props) {
                 <HomeTabs />
             </Container>
 
-            <div style={{width: "100%", height: "300px", backgroundColor: "#3f5d7a", color:"#fff", display:"flex"}}>
-                <h1>I'm the Footer</h1>
+            <div className='Footer'>
+                <div className='FooterContents'>
+                    <div className='footerContentItem'>
+                        <h3 style={{color:"#fd7e14"}}>Tổng Công ty Cổ phần Bảo hiểm Bưu Điện - PTI</h3>
+                        <h5>Số 95 phố Trần Thái Tông - Phường Dịch Vọng - Quận Cầu Giấy - Thành phố Hà Nội</h5>
+                        <h5>Tel: 8424-37724466 | Fax: 8424-37724460/61</h5>
+                        <h5>Tel: 8424-37724466 | Fax: 8424-37724460/61</h5>
+                    </div>
+                    <div className='footerContentItem'>
+                        <h3 style={{color:"#fd7e14"}}>Application</h3>
+                        <h5>Work Environment</h5>
+                        <h5>Benefits</h5>
+                    </div>
+                    <div className='footerContentItem'>
+                        <h3 style={{color:"#fd7e14"}}>About</h3>
+                        <h5>General information</h5>
+                        <h5>Organization Message</h5>
+                        <h5>Net Worth</h5>
+                        <h5>Brand</h5>
+                    </div>
+                </div>
+                
             </div>
         </React.Fragment >
     );
