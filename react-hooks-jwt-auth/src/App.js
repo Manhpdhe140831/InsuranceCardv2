@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -21,11 +22,14 @@ import EventBus from "./common/EventBus";
 import ListContract from "./view/ListContract";
 
 const App = () => {
+  const [showLogin, setLoginVisible] = useState(false);
+  const [showSignup, setSignupVisible] = useState(false);
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showCreateStaff, setShowCreateStaff] = useState(false);
   const [showManageContract, setShowManageContract] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
+
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
@@ -58,7 +62,7 @@ const App = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-info" style={{backgroundColor:"#50769a !important;"}}>
+      <nav className="navbar navbar-expand navbar-dark bg-info" style={{ backgroundColor: "#50769a !important;" }}>
         <Link to={"/"} className="navbar-brand">
           Insurance Card
         </Link>
@@ -123,7 +127,7 @@ const App = () => {
           </div>
         ) : (
           <div className="navbar-nav ml-auto">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to={"/login"} className="nav-link">
                 Login
               </Link>
@@ -133,35 +137,51 @@ const App = () => {
               <Link to={"/register"} className="nav-link">
                 Sign Up
               </Link>
+            </li> */}
+            <li>
+              <Button className="Btncenter" variant="text"
+                sx={{ color: 'white', backgroundColor: '#50769a', height: '130%' }}
+                onClick={() => { setLoginVisible(true) }}  >
+                Log In
+              </Button>
+
+            </li>
+
+            <li>
+              <Button className="Btncenter" variant="text"
+                sx={{ color: 'white', backgroundColor: '#50769a', height: '130%' }}
+                onClick={() => { setSignupVisible(true) }}
+              >
+                Sign Up
+              </Button>
             </li>
           </div>
         )}
       </nav>
 
+      {showLogin && <Login closeModal={setLoginVisible} />}
+
+
+
       <div className="container mt-3">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+
+          {/* <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} /> */}
+
           <Route path="/profile" element={<Profile />} />
           <Route path="/customer" element={<BoardUser />} />
           <Route path="/staff" element={<BoardModerator />} />
           <Route path="/admin" element={<BoardAdmin />} />
           <Route path="/create-user" element={<CreateUser />} />
           <Route path="/contract-customer" element={<ListCustomer />} />
-          
+
           {/* <Route path="/list-contract" element={<ListContract />} /> */}
         </Routes>
       </div>
-      <HomePage />
-          {/* <div className="modalCst">
-            <div className="modal-edit">
-              <Login
-                // handleCloseModal={handleCloseModal}
-              />
-            </div>
-          </div> */}
+      {/* <HomePage /> */}
     </div>
   );
 };

@@ -5,6 +5,8 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 
 import AuthService from "../services/auth.service";
+import "../style/loginStyle.scss"
+import TextField from '@mui/material/TextField';
 
 const required = (value) => {
   if (!value) {
@@ -16,7 +18,7 @@ const required = (value) => {
   }
 };
 
-const Login = () => {
+const Login = ({ closeModal }) => {
   let navigate = useNavigate();
 
   const form = useRef();
@@ -69,57 +71,85 @@ const Login = () => {
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
-
-        <Form onSubmit={handleLogin} ref={form}>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <Input
-              type="text"
-              className="form-control"
-              name="username"
-              value={username}
-              onChange={onChangeUsername}
-              validations={[required]}
-            />
+    <div className="LoginModalContainer">
+      <div className="LoginModal">
+        <div className="LoginModalContents">
+          <div className="modalHeader">
+            <button className="closeModal" onClick={() => closeModal(false)}> X </button>
           </div>
+          <img
+            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            alt="profile-img"
+            className="profile-img-card"
+          />
 
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <Input
-              type="password"
-              className="form-control"
-              name="password"
-              value={password}
-              onChange={onChangePassword}
-              validations={[required]}
-            />
-          </div>
-
-          <div className="form-group">
-            <button className="btn btn-primary btn-block" disabled={loading}>
-              {loading && (
-                <span className="spinner-border spinner-border-sm"></span>
-              )}
-              <span>Login</span>
-            </button>
-          </div>
-
-          {message && (
+          <Form onSubmit={handleLogin} ref={form}>
             <div className="form-group">
-              <div className="alert alert-danger" role="alert">
-                {message}
-              </div>
+              {/* <label htmlFor="username">Username</label> */}
+              {/* <Input
+                type="text"
+                className="form-control"
+                name="username"
+                value={username}
+                onChange={onChangeUsername}
+                validations={[required]}
+              /> */}
+              <TextField label="Username" variant="filled"
+                type="text"
+                className="form-control"
+                name="username"
+                value={username}
+                onChange={onChangeUsername}
+                validations={[required]}
+                sx={{ width: "100%", paddingTop: "10px", marginTop: "10px", marginBottom: "10px" }}
+              />
             </div>
-          )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
+
+            <div className="form-group">
+              {/* <label htmlFor="password">Password</label>
+              <Input
+                type="password"
+                className="form-control"
+                name="password"
+                value={password}
+                onChange={onChangePassword}
+                validations={[required]}
+              /> */}
+              <TextField label="Password" variant="filled"
+                type="password"
+                className="form-control"
+                name="password"
+                value={password}
+                onChange={onChangePassword}
+                validations={[required]}
+                sx={{ width: "100%", paddingTop: "10px", marginTop: "10px", marginBottom: "10px" }}
+              />
+            </div>
+
+            <div className="form-group" style={{ marginTop: "30px", marginBottom: "10px" }} >
+              <button className="btn btn-login btn-block" disabled={loading}
+                style={{
+                  backgroundColor: "#50769a"
+                  , zIndex: "100000 !important"
+                }}
+              >
+                {loading && (
+                  <span className="spinner-border spinner-border-sm"></span>
+                )}
+                <span>Login</span>
+              </button>
+            </div>
+
+            {message && (
+              <div className="form-group">
+                <div className="alert alert-danger" role="alert">
+                  {message}
+                </div>
+              </div>
+            )}
+            <CheckButton style={{ display: "none" }} ref={checkBtn} />
+          </Form>
+        </div>
       </div>
     </div>
   );
