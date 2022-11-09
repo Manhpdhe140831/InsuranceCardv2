@@ -49,15 +49,15 @@ function ListCustomer({ data }) {
   console.log(content)
   const [searchStr, setSearchStr] = useState('');
   const [searchList, setSearchList] = useState(data);
-  const listData = data;
-  const handleSearch = () => {
-    setSearchList(
-      listData.filter((customer) =>
-        customer.name.toLowerCase().includes(searchStr.toLowerCase())
-      )
-    );
-  };
-
+  const listData = content;
+  // const handleSearch = () => {
+  //   setSearchList(
+  //     content.filter((customer) =>
+  //       customer.name.toLowerCase().includes(searchStr.toLowerCase())
+  //     )
+  //   );
+  // };
+  console.log(searchList)
   const [isShow, setIsShow] = useState(false);
   const [isShowContract, setIsShowContract] = useState(false);
   const [customerTemp, setCustomerTemp] = useState(null);
@@ -77,7 +77,9 @@ function ListCustomer({ data }) {
               value={searchStr}
               onChange={(e) => setSearchStr(e.target.value)}
             />{' '}
-            <button className="button-search_liststaff" onClick={handleSearch}>
+            <button className="button-search_liststaff"
+            //  onClick={handleSearch}
+             >
               <BsSearch style={{ color: 'white' }} size={20} />
             </button>
           </div>
@@ -97,7 +99,7 @@ function ListCustomer({ data }) {
             </tr>
           </thead>
           <tbody>
-            {searchList.map((customer) => (
+            {content.map((customer) => (
               <Customer
                 key={customer.id}
                 customer={customer}
