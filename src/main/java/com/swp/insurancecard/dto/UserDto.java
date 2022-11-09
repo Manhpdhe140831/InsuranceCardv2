@@ -19,8 +19,8 @@ public class UserDto {
     private Date dateOfBirth;
     private String gender;
     private String address;
+    private String role;
     private Set<Role> roles = new HashSet<>();
-
 
     public UserDto(User user) {
         this.id = user.getId();
@@ -32,5 +32,6 @@ public class UserDto {
         this.gender = user.getGender();
         this.address = user.getAddress();
         this.roles = user.getRoles();
+        this.setRole(user.getRoles().stream().findFirst().get().getName().toString());
     }
 }

@@ -13,9 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service @Transactional @Slf4j
 public class UserServiceImpl implements UserService {
@@ -75,5 +73,25 @@ public class UserServiceImpl implements UserService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<UserDto> getAllUserByAdmin() {
+        List<User> listRaw = userRepository.getAllByAdmin();
+        List<UserDto> list = new ArrayList<>();
+        for(User user : listRaw){
+            list.add(new UserDto(user));
+        }
+        return list;
+    }
+
+    @Override
+    public List<UserDto> getAllUserByStaff() {
+        List<User> listRaw = userRepository.getAllByStaff();
+        List<UserDto> list = new ArrayList<>();
+        for(User user : listRaw){
+            list.add(new UserDto(user));
+        }
+        return list;
     }
 }
