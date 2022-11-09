@@ -11,28 +11,26 @@ import {
     BsGeoAltFill,
 } from "react-icons/bs";
 import AuthService from "../services/auth.service";
-const GMale = 'male';
-const GFemale = 'female';
+const GMale = "male";
+const GFemale = "female";
 const CreateUser = () => {
     const [profile, setProfile] = useState({
         username: "",
         password: "",
-        name: '',
-        gender: '',
-        birthday: '',
-        email: '',
-        address: '',
-        phone: '',
+        name: "",
+        gender: "",
+        birthday: "",
+        email: "",
+        address: "",
+        phone: "",
     });
 
     const handleOnlickCreate = () => {
-        AuthService.signup(profile).then(
-            () => {
-                console.log("create success");
-            }
-        )
+        AuthService.signup(profile).then(() => {
+            console.log("create success");
+        });
         console.log(profile);
-    }
+    };
 
     return (
         <div>
@@ -40,42 +38,42 @@ const CreateUser = () => {
                 <div className="main-create-staff">
                     <h1>Create Staff</h1>
                     <div className="Profile">
-                        <h2>Account</h2>
-                        <h4>
-                            <BsFillPersonFill className="icon" />
-                            Username:{" "}
-                            <input
-                                placeholder="enter username"
-                                value={profile.username}
-                                onChange={(e) => {
-                                    setProfile({
-                                        ...profile,
-                                        username: e.target.value,
-                                    });
-                                }}
-                            />
-                        </h4>
-                        <h4>
-                            <BsShieldLockFill className="icon" /> Password:{" "}
-                            <input
-                                type="password"
-                                value={profile.password}
-                                placeholder="enter password"
-                                onChange={(e) => {
-                                    setProfile({
-                                        ...profile,
-                                        password: e.target.value,
-                                    });
-                                }}
-                            />
-                        </h4>
+                        <div className="grid">
+                            <h4>
+                                <BsFillPersonFill className="icon" />
+                                Username:{" "}
+                                <input
+                                    placeholder="enter username"
+                                    value={profile.username}
+                                    onChange={(e) => {
+                                        setProfile({
+                                            ...profile,
+                                            username: e.target.value,
+                                        });
+                                    }}
+                                />
+                            </h4>
+                            <h4>
+                                <BsShieldLockFill className="icon" /> Password:{" "}
+                                <input
+                                    type="password"
+                                    value={profile.password}
+                                    placeholder="enter password"
+                                    onChange={(e) => {
+                                        setProfile({
+                                            ...profile,
+                                            password: e.target.value,
+                                        });
+                                    }}
+                                />
+                            </h4>
+                        </div>
                     </div>
                     <div className="Profile">
-                        <h2>Profile</h2>
                         <div className="flex-container-profile">
                             <div className="left-profile flex-profile">
                                 <h4>
-                                    <BsFillPersonFill className="icon" /> Name:{' '}
+                                    <BsFillPersonFill className="icon" /> Name:{" "}
                                     <input
                                         placeholder="enter name"
                                         value={profile.name}
@@ -96,20 +94,21 @@ const CreateUser = () => {
                                     onChange={(e) => {
                                         setProfile({ ...profile, gender: GMale });
                                     }}
-                                />{' '}
+                                />{" "}
                                 MALE
+                                <br></br>
                                 <input
                                     type="radio"
                                     name="gender"
                                     onChange={(e) => {
                                         setProfile({ ...profile, gender: GFemale });
                                     }}
-                                />{' '}
+                                />{" "}
                                 FEMALE
                             </div>
                             <div className="right-profile flex-profile">
                                 <h4>
-                                    <BsFillCalendarEventFill className="icon" /> Birthday:{' '}
+                                    <BsFillCalendarEventFill className="icon" /> Birthday:{" "}
                                     <input
                                         type="date"
                                         value={profile.birthday}
@@ -122,7 +121,7 @@ const CreateUser = () => {
                                     />
                                 </h4>
                                 <h4>
-                                    <BsFillTelephoneFill className="icon" /> Phone:{' '}
+                                    <BsFillTelephoneFill className="icon" /> Phone:{" "}
                                     <input
                                         type="number"
                                         placeholder="enter phone number"
@@ -136,7 +135,7 @@ const CreateUser = () => {
                                     />
                                 </h4>
                                 <h4>
-                                    <BsEnvelopeFill className="icon" /> Email:{' '}
+                                    <BsEnvelopeFill className="icon" /> Email:{" "}
                                     <input
                                         type="email"
                                         placeholder="enter email"
@@ -153,9 +152,8 @@ const CreateUser = () => {
                         </div>
                     </div>
                     <div className="Profile">
-                        <h2>Addresss</h2>
                         <h4>
-                            <BsGeoAltFill className="icon" /> Address:{' '}
+                            <BsGeoAltFill className="icon" /> Address:{" "}
                             <input
                                 placeholder="enter Address"
                                 value={profile.address}
@@ -164,7 +162,6 @@ const CreateUser = () => {
                                 }}
                             />
                         </h4>
-
                     </div>
                     <div className="btn-create-staff">
                         <button onClick={() => handleOnlickCreate()}>Create</button>
