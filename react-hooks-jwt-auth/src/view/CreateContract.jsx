@@ -24,6 +24,7 @@ const CreateContract = () => {
         licenseplate: '',
         enginenumber: '',
         chassisnumber: '',
+        vehicletype: '',
     })
 
     return (
@@ -108,6 +109,20 @@ const CreateContract = () => {
                                             setContract({
                                                 ...contract,
                                                 enginenumber: e.target.value,
+                                            })
+                                        }}
+                                    />
+                                </h4>
+                                <h4>
+                                    <BsFillFileEarmarkMedicalFill className="icon" /> Vehicle Type{' '}
+                                    <input
+                                        type="text"
+                                        placeholder="Enter Vehicle type"
+                                        value={contract.vehicletype}
+                                        onChange={(e) => {
+                                            setContract({
+                                                ...contract,
+                                                vehicletype: e.target.value,
                                             })
                                         }}
                                     />
@@ -211,5 +226,5 @@ const CreateContract = () => {
             </div>
         </div>
     )
-}
+};
 export default CreateContract
