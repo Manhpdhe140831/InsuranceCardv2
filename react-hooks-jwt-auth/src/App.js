@@ -150,6 +150,7 @@ const App = () => {
           <Route path="/admin" element={<BoardAdmin />} />
           <Route path="/create-user" element={<CreateUser />} />
           <Route path="/contract-customer" element={<ListCustomer />} />
+          
           {/* <Route path="/list-contract" element={<ListContract />} /> */}
         </Routes>
       </div>

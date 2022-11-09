@@ -4,7 +4,8 @@ import { BsSearch } from 'react-icons/bs';
 import Customer from './Customer';
 import EditListCustomer from './EditListCustomer';
 import ListContractCustomer from './ListContractCustomer';
-import '../style/listStaff.scss';
+import '../style/listContractCustomer.scss';
+import '../style/editListStaff.scss';
 ListCustomer.propTypes = {
   data: PropTypes.array,
 };
@@ -13,29 +14,23 @@ ListCustomer.defaultProps = {
   data: [
     {
       id: 1,
-      name: 'Customer NamBD',
-      gender: 'Customer MALE',
-      folk: 'Customer folk',
-      birthday: 'Customer 29/12/2002',
-      email: 'Customer namngu213@gmail.com',
-      phone: 'Customer 123456789',
-      country: 'Customer cho hoa lac',
-      city: 'Customer cho hoa lac',
-      district: 'Customer cho hoa lac',
-      street: 'Customer cho hoa lac',
+      name: ' NamBD',
+      gender: 'MALE',
+      folk: ' folk',
+      birthday: ' 29/12/2002',
+      email: ' namngu213@gmail.com',
+      phone: ' 123456789',
+      address:'dhjbdgydsagyuasdgyuasdgyi'
     },
     {
       id: 2,
-      name: 'Customer PhongAnlon',
-      gender: 'Customer FEMALE',
-      folk: 'Customer folk',
-      birthday: 'Customer 29/12/2002',
-      email: 'Customer namngu213@gmail.com',
-      phone: 'Customer 123456789',
-      country: 'Customer cho hoa lac',
-      city: 'Customer cho hoa lac',
-      district: 'Customer cho hoa lac',
-      street: 'Customer cho hoa lac',
+      name: ' PhongAnlon',
+      gender: ' FEMALE',
+      folk: ' folk',
+      birthday: ' 29/12/2002',
+      email: ' namngu213@gmail.com',
+      phone: ' 123456789',
+      address:'dhjbdgydsagyuasdgyuasdgyi'
     },
   ],
 };

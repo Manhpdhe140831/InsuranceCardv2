@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { AiOutlineLike, AiOutlineMail, AiOutlinePhone, AiOutlineUser } from 'react-icons/ai';
-import { BsGenderAmbiguous } from 'react-icons/bs';
-import { GrClose } from 'react-icons/gr';
-import { RiCake2Line } from 'react-icons/ri';
-import { SlLocationPin } from 'react-icons/sl';
+import PropTypes from 'prop-types';
 import '../style/editListStaff.scss';
-EditListCustomer.propTypes = {};
+import { BsGenderAmbiguous } from 'react-icons/bs';
+import { AiOutlineMail } from 'react-icons/ai';
+import { AiOutlineUser } from 'react-icons/ai';
+import { AiOutlinePhone } from 'react-icons/ai';
+import { SlLocationPin } from 'react-icons/sl';
+import { AiOutlineLike } from 'react-icons/ai';
+import { RiCake2Line } from 'react-icons/ri';
+import { GrClose } from 'react-icons/gr';
+EditListCustomerVip.propTypes = {};
 
-function EditListCustomer({ customer, handleCloseModal }) {
+function EditListCustomerVip({ customer, handleCloseModal }) {
   // const [accountStaff, setAccountStaff] = useState({
   //   username: '',
   //   password: '',
@@ -19,13 +23,9 @@ function EditListCustomer({ customer, handleCloseModal }) {
     folk: customer?.folk,
     phone: customer?.phone,
     email: customer?.email,
+    address: customer?.address,
   });
-  const [addressCustomer, setAddressCustomer] = useState({
-    country: customer?.country,
-    city: customer?.city,
-    district: customer?.district,
-    street: customer?.street,
-  });
+
 
   const gender = profileCustomer.gender === 'MALE' ? true : false;
   console.log(gender);
@@ -37,16 +37,13 @@ function EditListCustomer({ customer, handleCloseModal }) {
             <GrClose size={34} />
           </div>
           <div className="row no-gutters">
-            <div className="col-md-7 d-flex align-items-stretch">
-              <div className="contact-wrap w-100 p-md-5 p-4">
-                <div id="form-message-warning" className="mb-4"></div>
-                <div id="form-message-success" className="mb-4">
-                  Your message was sent, thank you!
-                </div>
+            <div className="col-md-6 d-flex align-items-stretch">
+              <div className="contact-wrap w-100 p-md-5 p-4">              
                 <form method="POST" id="contactForm" name="contactForm">
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
+                        <p>NAME</p>
                         <input
                           type="text"
                           className="form-control"
@@ -65,6 +62,7 @@ function EditListCustomer({ customer, handleCloseModal }) {
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
+                      <p>EMAIL</p>
                         <input
                           type="email"
                           className="form-control"
@@ -83,6 +81,7 @@ function EditListCustomer({ customer, handleCloseModal }) {
                     </div>
                     <div className="col-md-12">
                       <div className="form-group">
+                      <p>PHONE</p>
                         <input
                           type="phone"
                           className="form-control"
@@ -100,7 +99,7 @@ function EditListCustomer({ customer, handleCloseModal }) {
                       </div>
                     </div>
                     <div className="col-md-6">
-                      <div className="form-group">
+                      <div className="form-group">                      
                         <input
                           type="radio"
                           className="form-control-radio"
@@ -138,6 +137,7 @@ function EditListCustomer({ customer, handleCloseModal }) {
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
+                      <p>FOLK</p>
                         <input
                           type="text"
                           className="form-control"
@@ -156,6 +156,7 @@ function EditListCustomer({ customer, handleCloseModal }) {
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
+                      <p>BIRTHDAY</p>
                         <input
                           type="date"
                           className="form-control"
@@ -172,79 +173,24 @@ function EditListCustomer({ customer, handleCloseModal }) {
                         />
                       </div>
                     </div>
-                    <div className="col-md-12">Address</div>
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                       <div className="form-group">
                         <input
                           type="text"
                           className="form-control"
                           name="country"
                           id="country"
-                          value={addressCustomer.country}
+                          value={profileCustomer.address}
                           onChange={(e) =>
-                            setAddressCustomer({
-                              ...addressCustomer,
-                              country: e.target.value,
+                            setProfileCustomer({
+                              ...profileCustomer,
+                              address: e.target.value,
                             })
                           }
-                          placeholder="Country"
+                          placeholder="address"
                         />
                       </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="city"
-                          id="city"
-                          value={addressCustomer.city}
-                          onChange={(e) =>
-                            setAddressCustomer({
-                              ...addressCustomer,
-                              city: e.target.value,
-                            })
-                          }
-                          placeholder="City"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="district"
-                          id="district"
-                          value={addressCustomer.district}
-                          onChange={(e) =>
-                            setAddressCustomer({
-                              ...addressCustomer,
-                              district: e.target.value,
-                            })
-                          }
-                          placeholder="District"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="street"
-                          id="street"
-                          value={addressCustomer.street}
-                          onChange={(e) =>
-                            setAddressCustomer({
-                              ...addressCustomer,
-                              street: e.target.value,
-                            })
-                          }
-                          placeholder="Street"
-                        />
-                      </div>
-                    </div>
+                    </div>                    
                     <div className="col-md-12">
                       <div className="form-group">
                         <input
@@ -259,7 +205,7 @@ function EditListCustomer({ customer, handleCloseModal }) {
                 </form>
               </div>
             </div>
-            <div className="col-md-5 d-flex align-items-stretch">
+            <div className="col-md-6 d-flex align-items-stretch">
               <div className="info-wrap bg-primary w-100 p-lg-5 p-4">
                 <div className="dbox w-100 d-flex align-items-center">
                   <div className="icon d-flex align-items-center justify-content-center">
@@ -327,9 +273,8 @@ function EditListCustomer({ customer, handleCloseModal }) {
                   </div>
                   <div className="text pl-3">
                     <p>
-                      <span>Address:</span>
-                      {addressCustomer.country}-{addressCustomer.city}-
-                      {addressCustomer.district}-{addressCustomer.street}
+                    <span>Address:</span>
+                      {profileCustomer.address}
                     </p>
                   </div>
                 </div>
@@ -342,4 +287,4 @@ function EditListCustomer({ customer, handleCloseModal }) {
   );
 }
 
-export default EditListCustomer;
+export default EditListCustomerVip;
