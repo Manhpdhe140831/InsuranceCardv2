@@ -28,6 +28,7 @@ const App = () => {
   const [showCreateStaff, setShowCreateStaff] = useState(false);
   const [showManageContract, setShowManageContract] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
+  const [showContract, setShowContract] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
 
@@ -40,6 +41,7 @@ const App = () => {
       setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
       setShowCreateStaff(user.roles.includes("ROLE_ADMIN"));
       setShowManageContract(user.roles.includes("ROLE_ADMIN"));
+      setShowContract(user.roles.includes("ROLE_STAFF"));
     }
 
     EventBus.on("logout", () => {
@@ -57,12 +59,13 @@ const App = () => {
     setShowAdminBoard(false);
     setShowCreateStaff(false);
     setShowManageContract(false);
+    setShowContract(false);
     setCurrentUser(undefined);
   };
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-info" style={{ backgroundColor: "#50769a !important;", position:"fixed", right:"0", left:"0", top:"0" }}>
+      <nav className="navbar navbar-expand navbar-dark bg-info" style={{ backgroundColor: "#50769a !important;", position: "fixed", right: "0", left: "0", top: "0" }}>
         <Link to={"/"} className="navbar-brand">
           Insurance Card
         </Link>
@@ -107,6 +110,13 @@ const App = () => {
             <li className="nav-item">
               <Link to={"/contract-customer"} className="nav-link">
                 Manage Contract
+              </Link>
+            </li>
+          )}
+          {showContract && (
+            <li className="nav-item">
+              <Link to={"/contract"} className="nav-link">
+                Contract
               </Link>
             </li>
           )}
@@ -160,11 +170,11 @@ const App = () => {
       </nav>
 
       {showLogin && <Login closeModal={setLoginVisible} />}
-      {showSignup && <Register closeModal={setSignupVisible}/>}
+      {showSignup && <Register closeModal={setSignupVisible} />}
 
 
 
-      <div className="container mt-3" style={{marginTop:"70px !important"}}>
+      <div className="container mt-3" style={{ marginTop: "70px !important" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -178,6 +188,7 @@ const App = () => {
           <Route path="/admin" element={<BoardAdmin />} />
           <Route path="/create-user" element={<CreateUser />} />
           <Route path="/contract-customer" element={<ListCustomer />} />
+          <Route path="/contract" element={<ListContract />} />
 
           {/* <Route path="/list-contract" element={<ListContract />} /> */}
         </Routes>
