@@ -1,0 +1,40 @@
+.RegisterModalContainer{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba($color: #000, $alpha: 0.5);
+    position: fixed;
+}
+
+.RegisterModal{
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.RegisterContents{ 
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.closeModal{
+    float: right;
+    background-color: #fff;
+    padding: 8px;
+    border: 0;
+    font-size: 20px;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+.closeModal:hover{
+    background-color: #333;
+    opacity: 0.5;
+}
