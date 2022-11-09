@@ -49,7 +49,7 @@ function ListCustomer({ data }) {
   console.log(content)
   const [searchStr, setSearchStr] = useState('');
   const [searchList, setSearchList] = useState(data);
-  const listData = content;
+  const listData = data;
   // const handleSearch = () => {
   //   setSearchList(
   //     content.filter((customer) =>
@@ -71,6 +71,7 @@ function ListCustomer({ data }) {
     <React.Fragment>
       <div className="container_liststaff">
         <div className="container-search_liststaff">
+          <button className="button-create" >Create staff</button>
           <div className="main_search">
             <input
               className="input_liststaff"
@@ -99,7 +100,7 @@ function ListCustomer({ data }) {
             </tr>
           </thead>
           <tbody>
-            {content.map((customer) => (
+            {listData.map((customer) => (
               <Customer
                 key={customer.id}
                 customer={customer}

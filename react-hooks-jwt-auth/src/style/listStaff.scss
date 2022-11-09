@@ -45,7 +45,7 @@
 }
 
 .container-search_liststaff {
-    width: 50%;
+    // width: 50%;
     padding: 10px;
     margin-left: auto;
 }
@@ -145,14 +145,15 @@ select:focus {
     max-width: 200px;
     max-height: 200px;
 }
-.button-create-contract{
-    color: #000;
+.button-create{
+    font-size: 15px;
     font-weight: bold;
-    padding: 20px;
+    padding: 15px;
     background-color: #bbbbbb;
     border-radius: 5px;
+    border: 0;
 }
-.button-create-contract:hover{
+.button-create:hover{
     cursor: pointer;
     background-color: #727070;
     color: rgb(255, 255, 255);

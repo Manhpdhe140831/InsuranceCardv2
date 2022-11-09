@@ -51,8 +51,9 @@ function ListContract({ data, handleCloseModal }) {
     <React.Fragment>
 
       <div className="container_listcontract">
-        <a className="button-create-contract" href="">Create New Contract</a>
+        {/* <a className="button-create-contract" href="">Create New Contract</a> */}
         <div className="container-search_liststaff">
+            <button className='button-create'>Create New Contract</button>
           <div className="main_search">
             <input
               className="input_liststaff"
