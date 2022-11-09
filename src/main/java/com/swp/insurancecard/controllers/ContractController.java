@@ -5,6 +5,7 @@ import com.swp.insurancecard.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class ContractController {
     private ContractService contractService;
 
     @GetMapping(value = "")
+    @PreAuthorize("hasRole('CUSTOMER') or hasRole('STAFF') or hasRole('ADMIN')")
     public ResponseEntity<List<ContractDto>> getAll(){
         List<ContractDto> list = contractService.getAll();
         return new ResponseEntity<>(list, HttpStatus.OK);

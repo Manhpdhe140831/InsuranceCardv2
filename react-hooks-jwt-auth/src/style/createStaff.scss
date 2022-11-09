@@ -1,7 +1,7 @@
 .container-create-staff {
     font-size: 17px;
     background-color:   rgb(196, 188, 188);
-    padding: 7%;
+    padding: 0;
 }
 
 .container-create-staff h1 {
@@ -14,9 +14,15 @@
     justify-content: space-between;
 }
 
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 .main-create-staff {
     background-color: rgb(255, 255, 255);
-    padding: 80px;
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -29,13 +35,13 @@
 }
 
 .container-create-staff input:not([type=radio]) {
-    padding: 12px 20px;
-    margin: 4px 0;
+   
     display: flex;
     width: 100%;
     border: 1px solid rgb(0, 0, 0);
-    box-sizing: border-box;
+    box-sizing:border-box;
     border-radius: 3px ;
+    height:60%
 }
 
 .container button:hover {
@@ -84,3 +90,4 @@ input::-webkit-inner-spin-button {
     text-align: center;
     margin-bottom: 50px;
 }
+
