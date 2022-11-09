@@ -40,8 +40,18 @@ public class Contract {
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date contractDate;
 
+    @Column(name = "license")
+    private String license;
+    @Column(name = "model")
+    private String model;
+    @Column(name = "frameNumber")
+    private String frameNumber;
+    @Column(name = "engineNumber")
+    private String engineNumber;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
     private User account;
+
 
 }

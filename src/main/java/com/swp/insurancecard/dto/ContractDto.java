@@ -23,6 +23,14 @@ public class ContractDto {
     private Date FPFDate;
     private Date SPFDate;
     private Date contractDate;
+
+    private String license;
+
+    private String model;
+
+    private String frameNumber;
+
+    private String engineNumber;
     private User accountDto;
 
     public ContractDto(Contract contract){
@@ -36,17 +44,20 @@ public class ContractDto {
         this.setFPFDate(contract.getFPFDate());
         this.setSPF(contract.getSPF());
         this.setContractDate(contract.getContractDate());
+        this.setLicense(contract.getLicense());
+        this.setModel(contract.getModel());
+        this.setEngineNumber(contract.getEngineNumber());
+        this.setFrameNumber(contract.getFrameNumber());
         if (null != contract.getAccount()){
             accountDto = new User(contract.getAccount());
         }
 
     }
 
-    public ContractDto(Double price, Date datePayment, Double price2, Date datePayment2){
+    public ContractDto(Double price, Date datePayment){
         this.FPF = price;
         this.FPFDate = datePayment;
-        this.SPF = price2;
-        this.SPFDate = datePayment2;
+
     }
 
     public ContractDto(Long id, String code){

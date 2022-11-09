@@ -35,7 +35,6 @@ public class Motorbike {
     private String frameNumber;
     @Column(name = "engineNumber")
     private String engineNumber;
-    private  String image;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

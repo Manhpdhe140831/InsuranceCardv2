@@ -16,7 +16,7 @@ public interface ContractRepository extends JpaRepository<Contract, Long> {
     public List<Contract> getContractByAccountId(Long id);
 
 //    @Query(value = "SELECT c from Contract c where c.FPF > 0");
-  @Query(value = "SELECT c.FPF, c.FPFDate from Contract c where c.FPF > 0 and c.SPF> 0 and c.account.id = ?1")
+  @Query(value = "SELECT c.FPF, c.FPFDate from Contract c where c.account.id = ?1")
     public List<Contract> getPF(Long id);
 
 }

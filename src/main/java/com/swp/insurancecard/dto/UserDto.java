@@ -1,6 +1,7 @@
 package com.swp.insurancecard.dto;
 
 import com.swp.insurancecard.models.Role;
+import com.swp.insurancecard.models.User;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
@@ -21,5 +22,15 @@ public class UserDto {
     private Set<Role> roles = new HashSet<>();
 
 
-
+    public UserDto(User user) {
+        this.id = user.getId();
+        this.username = user.getUsername();
+        this.email = user.getEmail();
+        this.name = user.getName();
+        this.phone = user.getName();
+        this.dateOfBirth = user.getDateOfBirth();
+        this.gender = user.getGender();
+        this.address = user.getAddress();
+        this.roles = user.getRoles();
+    }
 }

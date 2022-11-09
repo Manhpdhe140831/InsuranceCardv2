@@ -44,6 +44,10 @@ public class ContractServiceImpl implements ContractService {
             con.setFPFDate(contract.getFPFDate());
             con.setSPFDate(contract.getSPFDate());
             con.setContractDate(contract.getContractDate());
+            con.setLicense(contract.getLicense());
+            con.setModel(contract.getModel());
+            con.setEngineNumber(contract.getEngineNumber());
+            con.setFrameNumber(contract.getFrameNumber());
             if (null != contract.getAccountDto()) {
                 User account = null;
                 Optional<User> optional = accountRepository.findById(contract.getAccountDto().getId());
@@ -80,6 +84,10 @@ public class ContractServiceImpl implements ContractService {
                 contractObj.setFPFDate(contract.getFPFDate());
                 contractObj.setSPFDate(contract.getSPFDate());
                 contractObj.setContractDate(contract.getContractDate());
+                contractObj.setLicense(contract.getLicense());
+                contractObj.setModel(contract.getModel());
+                contractObj.setEngineNumber(contract.getEngineNumber());
+                contractObj.setFrameNumber(contract.getFrameNumber());
                 if (null != contract.getAccountDto()) {
                     User account = null;
                     Optional<User> optional = accountRepository.findById(contract.getAccountDto().getId());
@@ -174,6 +182,7 @@ public class ContractServiceImpl implements ContractService {
                     contractObj.setFPFDate(contractDto.getFPFDate());
                     contractObj.setSPFDate(contractDto.getSPFDate());
                     contractObj.setContractDate(contractDto.getContractDate());
+                    
                     if (null != contractDto.getAccountDto()) {
                         User account = null;
                         Optional<User> optional = accountRepository.findById(contractDto.getAccountDto().getId());
@@ -200,7 +209,7 @@ public class ContractServiceImpl implements ContractService {
         List<Contract> listFPF = repository.getPF(id);
         for (Contract item1: listFPF
              ) {
-             list.add(new ContractDto(item1.getFPF(), item1.getFPFDate(), item1.getSPF(), item1.getSPFDate()));
+             list.add(new ContractDto(item1.getFPF(), item1.getFPFDate()));
         }
 
         return list;

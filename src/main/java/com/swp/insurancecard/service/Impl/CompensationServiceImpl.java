@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public class CompensationServiceImpl implements CompensationService {
     @Autowired
@@ -31,16 +32,6 @@ public class CompensationServiceImpl implements CompensationService {
         }
         return list;
     }
-
-//    private Long id;
-//    private String code;
-//    private String image;
-//    private Date date;
-//    private String description;
-//    private boolean status;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "user_id")
-//    private User user;
     @Override
     public boolean save(String code,Boolean status,Date dateRequest, AccidentDto accidentDto) {
 
@@ -69,9 +60,19 @@ public class CompensationServiceImpl implements CompensationService {
     }
 
     @Override
-    public boolean update(Boolean status, String description, Date dateResponse) {
-
-
+    public boolean update(Long id, Boolean status, String description, Date dateResponse) {
+        Compensation compensation = null;
+        Optional<Compensation> optional = compensationRepository.findById(id);
+        if (optional.isPresent()){
+            compensation = optional.get();
+        }
+        compensation.setDescription(description);
+        compensation.setStatus(true);
+        compensation.getDateResponse();
+        if (compensation.getDescription().isEmpty() && compensation.isStatus() == true){
+            compensationRepository.save(compensation);
+            return true;
+        }
 
         return false;
     }
