@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import Customer from './Customer';
 import EditListCustomer from './EditListCustomer';
 import ListContractCustomer from './ListContractCustomer';
 import '../style/listContractCustomer.scss';
 import '../style/editListStaff.scss';
+import UserService from "../services/user.service";
+
 ListCustomer.propTypes = {
   data: PropTypes.array,
 };
@@ -20,7 +22,7 @@ ListCustomer.defaultProps = {
       birthday: ' 29/12/2002',
       email: ' namngu213@gmail.com',
       phone: ' 123456789',
-      address:'dhjbdgydsagyuasdgyuasdgyi'
+      address: 'dhjbdgydsagyuasdgyuasdgyi'
     },
     {
       id: 2,
@@ -30,11 +32,21 @@ ListCustomer.defaultProps = {
       birthday: ' 29/12/2002',
       email: ' namngu213@gmail.com',
       phone: ' 123456789',
-      address:'dhjbdgydsagyuasdgyuasdgyi'
+      address: 'dhjbdgydsagyuasdgyuasdgyi'
     },
   ],
 };
 function ListCustomer({ data }) {
+  const [content, setContent] = useState("");
+  useEffect(() => {
+    UserService.getAllUser().then(
+      (response) => {
+        setContent(response.data)
+      }
+    )
+
+  }, []);
+  console.log(content)
   const [searchStr, setSearchStr] = useState('');
   const [searchList, setSearchList] = useState(data);
   const listData = data;
