@@ -21,7 +21,7 @@ const CreateAccident = ({ setCreateAccident }) => {
   const [accident, setaccident] = useState({
     code: "",
     date:"",
-    description:""
+    description:""  
   });
 
   const [customer, setCustomer] = useState([

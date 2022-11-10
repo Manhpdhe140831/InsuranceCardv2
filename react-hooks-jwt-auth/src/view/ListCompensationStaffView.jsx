@@ -4,6 +4,7 @@ import '../style/listContractCustomer.scss';
 import CompensationStaffView from './CompensationStaffView';
 import EditCompensation from './EditCompensation';
 import '../style/listStaff.scss';
+import CreateCompensation from './CreateCompensation';
 
 ListCompensation.propTypes = {
   data: PropTypes.array,
@@ -12,22 +13,23 @@ ListCompensation.propTypes = {
 ListCompensation.defaultProps = {
   data: [
     {
-     code:'1x',
-     description:'nhu cai dau buoix',
-     status:'donex',
-     requestDate:'29/12/2002',
-     responseDate:'30/12/2002'
+      code: '1x',
+      description: 'nhu cai dau buoix',
+      status: 'donex',
+      requestDate: '29/12/2002',
+      responseDate: '30/12/2002'
     },
     {
-     code:'2x',
-     description:'nhu cai dau buoix',
-     status:'donex',
-     requestDate:'29/12/2002',
-     responseDate:'30/12/2002'
+      code: '2x',
+      description: 'nhu cai dau buoix',
+      status: 'donex',
+      requestDate: '29/12/2002',
+      responseDate: '30/12/2002'
     },
   ],
 };
 function ListCompensation({ data }) {
+  const [reportCompensation, setReportCompensation] = useState(false);
   const [content, setContent] = useState(data);
   const [isShow, setIsShow] = useState(false);
   const [isShowCompensation, setIsShowCompensation] = useState(false);
@@ -41,17 +43,20 @@ function ListCompensation({ data }) {
   return (
     <React.Fragment>
       <div className="container_liststaff">
-        <div className="container-search_liststaff">         
+        <div className="container-search_liststaff">
+          <button className="button-create" onClick={() => { setReportCompensation(true) }}>
+            Create Compensation
+          </button>
         </div>
         <table className="content-table">
           <thead>
             <tr>
               <th>CODE</th>
-              <th>DESCRIPTION</th>             
-              <th>STATUS</th>             
-              <th>REQUEST-DATE</th>             
-              <th>RESPONSE-DATE</th>             
-              <th>ACTION</th>             
+              <th>DESCRIPTION</th>
+              <th>STATUS</th>
+              <th>REQUEST-DATE</th>
+              <th>RESPONSE-DATE</th>
+              <th>ACTION</th>
             </tr>
           </thead>
           <tbody>
@@ -75,7 +80,9 @@ function ListCompensation({ data }) {
               />
             </div>
           </div>
-        )}       
+        )}
+
+        {reportCompensation && <CreateCompensation setReportCompensation={setReportCompensation} />}
       </div>
     </React.Fragment>
   );
