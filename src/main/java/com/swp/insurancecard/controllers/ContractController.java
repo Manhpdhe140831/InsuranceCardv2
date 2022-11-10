@@ -22,29 +22,36 @@ public class ContractController {
         List<ContractDto> list = contractService.getAll();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
     @PostMapping(value = "/save")
+    @PreAuthorize("hasRole('STAFF')")
     public ResponseEntity<ContractDto> createContract(@RequestBody ContractDto contractDto){
         ContractDto contract = contractService.saveContract(contractDto);
         return new ResponseEntity<>(contract, HttpStatus.OK);
     }
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @PreAuthorize("hasRole('STAFF')")
     public ResponseEntity<Boolean> removeContract(@PathVariable Long id){
         Boolean result = contractService.removeContract(id);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/update/{id}")
+    @RequestMapping(method = RequestMethod.POST, value = "/update/{id}")
+    @PreAuthorize("hasRole('STAFF')")
     public ResponseEntity<ContractDto> updateContract(@RequestBody ContractDto contractDto, @PathVariable Long id){
         ContractDto contract = contractService.updateContract(contractDto, id);
         return new ResponseEntity<>(contract, HttpStatus.OK);
     }
     @PostMapping(value = "/getContractById/{id}")
+    @PreAuthorize("hasRole('STAFF') or hasRole('ADMIN') or hasRole('CUSTOMER')")
     public ResponseEntity<ContractDto> getContractByID(@PathVariable Long id){
         ContractDto contract = contractService.getContractById(id);
         return new ResponseEntity<>(contract, HttpStatus.OK);
     }
 
+
     @GetMapping(value = "/search/{code}")
+    @PreAuthorize("hasRole('STAFF') or hasRole('ADMIN') or hasRole('CUSTOMER')")
     public ResponseEntity<List<ContractDto>> getListContractByCode(@PathVariable String code){
 
         List<ContractDto> list = contractService.findContractByCode(code);
@@ -53,11 +60,9 @@ public class ContractController {
     }
 
     @GetMapping(value = "/listbyaccountid/{id}")
+    @PreAuthorize("hasRole('CUSTOMER')")
     public ResponseEntity<List<ContractDto>> getListContractByAccountID(@PathVariable Long id){
         List<ContractDto> list = contractService.getContractByAccountID(id);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
-
-
-
 }

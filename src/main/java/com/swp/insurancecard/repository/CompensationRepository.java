@@ -12,4 +12,5 @@ public interface CompensationRepository extends JpaRepository<Compensation, Long
     List<Compensation> getCompensationByUserId(Long id);
 
 
+
 }

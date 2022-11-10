@@ -14,6 +14,7 @@ public interface CompensationService {
     public boolean update( Long id, Boolean status, String description, Date dateResponse);
     public Boolean delete(Long id);
     public List<CompensationDto> getByUserId(Long id);
+    public List<CompensationDto> getHistoryByUserId(Long id);
 
 
 

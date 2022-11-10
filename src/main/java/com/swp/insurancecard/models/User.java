@@ -55,6 +55,7 @@ public class User {
   public User(User user){
     this.id = user.getId();
     this.username = user.getUsername();
+    this.name = user.getName();
     this.phone = user.getPhone();
     this.dateOfBirth = user.getDateOfBirth();
     this.gender = user.getGender();

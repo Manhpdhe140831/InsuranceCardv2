@@ -95,4 +95,15 @@ public class CompensationServiceImpl implements CompensationService {
         }
         return result;
     }
+
+    @Override
+    public List<CompensationDto> getHistoryByUserId(Long id) {
+        List<Compensation> list = compensationRepository.getCompensationByUserId(id);
+        List<CompensationDto> result = new ArrayList<>();
+        for (Compensation itemC: list
+             ) {
+            result.add(new CompensationDto(itemC.getCode(), itemC.isStatus() ,itemC.getDateResponse()));
+        }
+        return result;
+    }
 }

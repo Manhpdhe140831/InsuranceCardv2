@@ -43,4 +43,10 @@ public class CompensationDto {
         this.user = user;
         this.accidentDto = accidentDto;
     }
+
+    public CompensationDto(String code, boolean status, Date dateResponse) {
+        this.code = code;
+        this.status = status;
+        this.dateResponse = dateResponse;
+    }
 }
