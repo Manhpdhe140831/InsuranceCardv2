@@ -69,7 +69,7 @@ public class ContractController {
     @GetMapping(value = "/renew")
     @PreAuthorize("hasRole('CUSTOMER')")
     public ResponseEntity<?> renew(@RequestParam("id") Long id, @RequestBody ContractDto contractDto ){
-        ContractDto contract = contractService.renewContract(contractDto, id);
+        ContractDto contract = contractService.renewContract(id);
         return new ResponseEntity<>(contract, HttpStatus.OK);
     }
 }
