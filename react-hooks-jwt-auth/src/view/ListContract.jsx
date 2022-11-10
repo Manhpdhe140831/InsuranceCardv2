@@ -5,6 +5,7 @@ import { BsSearch } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import '../style/listStaff.scss';
 import ContractService from "../services/contractService";
+import CreateContract from "./CreateContract";
 ListContract.propTypes = {
   data: PropTypes.array,
 };
@@ -38,6 +39,7 @@ function ListContract({ data, handleCloseModal }) {
   console.log(content)
   const [searchStr, setSearchStr] = useState('');
   const [searchList, setSearchList] = useState(data);
+  const [newContract, setNewContract] = useState(false)
   const listData = data;
   const handleSearch = () => {
     setSearchList(
@@ -53,7 +55,7 @@ function ListContract({ data, handleCloseModal }) {
       <div className="container_listcontract">
         {/* <a className="button-create-contract" href="">Create New Contract</a> */}
         <div className="container-search_liststaff">
-            <button className='button-create'>Create New Contract</button>
+          <button className='button-create' onClick={() => { setNewContract(true) }}>Create New Contract</button>
           <div className="main_search">
             <input
               className="input_liststaff"
@@ -89,18 +91,8 @@ function ListContract({ data, handleCloseModal }) {
             ))}
           </tbody>
         </table>
-        {/* style={isShow?{display:"flex"}:{display:"none"}} */}
-        {/* {isShow && (
-          <div className="modalCst">
-            <div className="modal-edit">
-              <EditListCustomer
-                customer={customerTemp}
-                handleCloseModal={handleCloseModal}
-              />
-            </div>
-          </div>
-        )} */}
       </div>
+      {newContract && <CreateContract setNewContract={setNewContract} />}
     </React.Fragment>
   );
 }

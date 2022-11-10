@@ -13,12 +13,12 @@ function makeid(length) {
     var characters = '0123456789';
     var charactersLength = characters.length;
     for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
-  }
+}
 
-const CreateContract = () => {
+const CreateContract = ({ setNewContract }) => {
     const [contract, setContract] = useState({
         code: '',
         beginDate: '',
@@ -37,8 +37,10 @@ const CreateContract = () => {
 
     return (
         <div>
+            <div className='ContractBackground'></div>
             <div className="container-create-contract">
                 <div className="main-create-contract">
+                    <button onClick={() => setNewContract(false)}> x </button>
                     <h1>Create Contract</h1>
                     <div className="Profile">
                         <div className="flex-container-profile">
