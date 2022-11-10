@@ -4,26 +4,28 @@ import '../style/listContractCustomer.scss';
 import '../style/listStaff.scss';
 import AccidentStaffView from './AccidentStaffView';
 import EditAccident from './EditAccident';
+import CreateAccident from './createAccident';
 
-ListAccident.propTypes = {
+ListAccidentStaffView.propTypes = {
   data: PropTypes.array,
 };
 
-ListAccident.defaultProps = {
+ListAccidentStaffView.defaultProps = {
   data: [
     {
-     code:'1',
-     date:'29/12/2002',
-     description:'nhu cai dau buoi'
+      code: '1',
+      date: '29/12/2002',
+      description: 'nhu cai dau buoi'
     },
     {
-     code:'2',
-     date:'29/12/2002',
-     description:'nhu cai dau buoi'
+      code: '2',
+      date: '29/12/2002',
+      description: 'nhu cai dau buoi'
     },
   ],
 };
-function ListAccident({ data }) { 
+function ListAccidentStaffView({ data }) {
+  const [reportAccident, setReportAccident] = useState(false);
   const [content, setContent] = useState(data);
   const [isShow, setIsShow] = useState(false);
   const [isShowContract, setIsShowContract] = useState(false);
@@ -37,15 +39,20 @@ function ListAccident({ data }) {
   return (
     <React.Fragment>
       <div className="container_liststaff">
-        <div className="container-search_liststaff">          
+        <div className="container-search_liststaff">
+          <button className="button-create" onClick={() => {setReportAccident(true)}}>
+            Create Accident
+          </button>
+        </div>
+        <div className="container-search_liststaff">
         </div>
         <table className="content-table">
           <thead>
             <tr>
               <th>CODE</th>
               <th>DATE</th>
-              <th>DESCRIPTION</th>             
-              <th>ACTION</th>             
+              <th>DESCRIPTION</th>
+              <th>ACTION</th>
             </tr>
           </thead>
           <tbody>
@@ -61,18 +68,24 @@ function ListAccident({ data }) {
         </table>
         {/* style={isShow?{display:"flex"}:{display:"none"}} */}
         {isShow && (
-          <div className="modalCst">
-            <div className="modal-edit">
+          <div 
+          // className="modalCst"
+          >
+            <div 
+            // className="modal-edit"
+            >
               <EditAccident
                 accident={accidentTemp}
                 handleCloseModal={handleCloseModal}
               />
             </div>
           </div>
-        )}       
+        )}
       </div>
+
+          {reportAccident && <CreateAccident setCreateAccident={setReportAccident}/>}
     </React.Fragment>
   );
 }
 
-export default ListAccident;
+export default ListAccidentStaffView;

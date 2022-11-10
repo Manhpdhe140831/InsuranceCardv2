@@ -25,6 +25,7 @@ ListContract.defaultProps = {
   ],
 };
 function ListContract({ data, handleCloseModal }) {
+  const [newContract, setNewContract] = useState(false) 
   const [content, setContent] = useState(data);
   useEffect(() => {
     ContractService.getContractByAdmin().then(
@@ -35,7 +36,7 @@ function ListContract({ data, handleCloseModal }) {
 
   }, []);
   console.log(content)
-  const [newContract, setNewContract] = useState(false)  
+   
 
   return (
     <React.Fragment>

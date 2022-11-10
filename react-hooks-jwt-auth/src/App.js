@@ -18,6 +18,7 @@ import CreateUser from "./view/CreateUser";
 import Contract from "./view/Contract";
 import ListCustomer from "./view/ListCustomer";
 import CreateContract from "./view/CreateContract"
+import ListAccidentStaffView from "./view/ListAccidentStaffView";
 
 import EventBus from "./common/EventBus";
 import ListContractView from "./view/ListContractView";
@@ -188,6 +189,7 @@ const App = () => {
           <Route path="/manage-staff" element={<ListStaff />} />
           <Route path="/contract" element={<ListContractView />} />
           <Route path="/create-contract" element={<CreateContract />} />
+          <Route path="/ListAccidentStaff" element={<ListAccidentStaffView />} />
 
           {/* <Route path="/list-contract" element={<ListContract />} /> */}
         </Routes>
