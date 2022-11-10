@@ -49,8 +49,13 @@ const CreateContract = ({ setNewContract }) => {
                                     <BsFillPersonFill className="icon" /> Code{' '}
                                     <input
                                         placeholder="Enter Name"
-                                        value={makeid(8)}
-                                        disabled
+                                        value={contract.code = makeid(8)}
+                                        onChange={(e) => {
+                                            setContract({
+                                                ...contract,
+                                                code: e.target.value,
+                                            })
+                                        }}
                                     />
                                 </h4>
                                 <h4>
