@@ -24,7 +24,7 @@ function EditContract({contract, handleCloseModal}) {
           <div className="row no-gutters">
             <div className="col-md-7 d-flex align-items-stretch">
               <div className="contact-wrap w-100 p-md-5 p-4">
-                <form method="POST" id="contactForm" name="contactForm">
+                <form id="contactForm" name="contactForm">
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">

@@ -25,6 +25,11 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
 
   const gender = profileCustomer.gender === 'MALE' ? true : false;
   console.log(gender);
+ const handleOnClickSave=()=>{
+  // e.preventDefault();
+  console.log(profileCustomer);
+  }
+
   return (
     <div className="container">
       <div className="col-lg-12 col-md-12">
@@ -34,8 +39,9 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
           </div>
           <div className="row no-gutters">
             <div className="col-md-6 d-flex align-items-stretch">
-              <div className="contact-wrap w-100 p-md-5 p-4">              
-                <form method="POST" id="contactForm" name="contactForm">
+              <div className="contact-wrap w-100 p-md-5 p-4">     
+                       
+                {/* <form id="contactForm" name="contactForm" className="saveFormStaff"> */}
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
@@ -193,12 +199,14 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                           type="submit"
                           value="Save"
                           className="btn btn-primary"
+                          onClick={()=>handleOnClickSave()}
+                          
                         />
                         <div className="submitting"></div>
                       </div>
                     </div>
                   </div>
-                </form>
+                {/* </form> */}
               </div>
             </div>
             <div className="col-md-6 d-flex align-items-stretch">
