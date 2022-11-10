@@ -14,14 +14,12 @@ ListContract.defaultProps = {
   data: [
     {
       contractCode: '321asd',
-      customerName: 'Nam',
-      startDate: '29/12/2002',
+      beginDate: '29/12/2002',
       endDate: '31/12/2002',
     },
     {
       contractCode: '32xxxxsd',
-      customerName: 'Nam',
-      startDate: '1/12/2022',
+      beginDate: '1/12/2022',
       endDate: '2/12/2022',
     },
   ],

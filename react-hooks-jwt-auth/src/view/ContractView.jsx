@@ -15,9 +15,8 @@ function Contract({ contract, setIsShow, setContractTemp }) {
   return (
     <>
       <tr>
-        <td>{contract.customerName}</td>
-        <td>{contract.contractCode} </td>
-        <td>{contract.startDate}</td>
+        <td>{contract.code} </td>
+        <td>{contract.beginDate}</td>
         <td>{contract.endDate}</td>
 
         <td>
