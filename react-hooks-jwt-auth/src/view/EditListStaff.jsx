@@ -44,7 +44,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
             <div className="col-md-6 d-flex align-items-stretch">
               <div className="contact-wrap w-100 p-md-5 p-4">
 
-                {/* <form id="contactForm" name="contactForm" className="saveFormStaff"> */}
+                <form id="contactForm" name="contactForm" className="saveFormStaff">
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
@@ -209,7 +209,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                     </div>
                   </div>
                 </div>
-                {/* </form> */}
+                </form>
               </div>
             </div>
             <div className="col-md-6 d-flex align-items-stretch">
