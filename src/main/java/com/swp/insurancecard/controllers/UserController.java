@@ -2,6 +2,7 @@ package com.swp.insurancecard.controllers;
 
 import com.swp.insurancecard.dto.ResponseDto;
 import com.swp.insurancecard.dto.UserDto;
+import com.swp.insurancecard.models.User;
 import com.swp.insurancecard.security.jwt.JwtUtils;
 import com.swp.insurancecard.service.UserService;
 import io.jsonwebtoken.Claims;
@@ -51,5 +52,12 @@ public class UserController {
         } else {
             return new ResponseEntity<>(new ResponseDto<>(400, check), HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("/user/getCustomer")
+    @PreAuthorize("hasRole('STAFF') or hasRole('ADMIN')")
+    public ResponseEntity<?> getCustomer(){
+        List<UserDto> result = userService.getAllUserByStaff();
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

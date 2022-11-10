@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../style/createContract.scss'
 import {
     BsFillPersonFill,
@@ -8,15 +8,16 @@ import {
     BsFillFileEarmarkMedicalFill,
 
 } from 'react-icons/bs'
-function makeid(length) {
-    var result = '';
-    var characters = '0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-}
+import UserService from "../services/user.service"
+// function makeid(length) {
+//     var result = '';
+//     var characters = '0123456789';
+//     var charactersLength = characters.length;
+//     for (var i = 0; i < length; i++) {
+//         result += characters.charAt(Math.floor(Math.random() * charactersLength));
+//     }
+//     return result;
+// }
 
 const CreateContract = ({ setNewContract }) => {
     const [contract, setContract] = useState({
@@ -35,6 +36,18 @@ const CreateContract = ({ setNewContract }) => {
         vehicletype: '',
     })
 
+    const [customer, setCustomer] = useState();
+
+    useEffect(() => {
+        UserService.getCustomer().then(
+            (response) => {
+                setCustomer(response.data)
+            }
+        )
+
+    }, []);
+    console.log(customer);
+
     return (
         <div>
             <div className="createContractBackground">
@@ -50,7 +63,7 @@ const CreateContract = ({ setNewContract }) => {
                                         <BsFillPersonFill className="icon" /> Code{' '}
                                         <input
                                             placeholder="Enter Name"
-                                            value={contract.code = makeid(8)}
+                                            value={contract.code}
                                             onChange={(e) => {
                                                 setContract({
                                                     ...contract,

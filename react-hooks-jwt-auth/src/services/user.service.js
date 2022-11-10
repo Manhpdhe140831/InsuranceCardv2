@@ -28,13 +28,18 @@ const updateUser = (user) => {
   return axios.put(API_USER + "user/update", user, { headers: authHeader() });
 }
 
+const getCustomer = () => {
+  return axios.get(API_USER + "user/getCustomer", { headers: authHeader() });
+}
+
 const UserService = {
   getPublicContent,
   getUserBoard,
   getModeratorBoard,
   getAdminBoard,
   getAllUser,
-  updateUser
+  updateUser,
+  getCustomer
 };
 
 export default UserService;
