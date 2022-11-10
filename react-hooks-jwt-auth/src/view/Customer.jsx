@@ -28,8 +28,7 @@ function Customer({ customer, setIsShow, setIsShowContract, setCustomerTemp }) {
         <td>{customer.email}</td>
         <td>{customer.phone}</td>
         <td>
-          {customer.country}-{customer.city}-{customer.district}-
-          {customer.street}
+          {customer.address}
         </td>
         <td>
           <AiOutlineMenu

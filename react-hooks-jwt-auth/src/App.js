@@ -21,6 +21,7 @@ import CreateContract from "./view/CreateContract"
 
 import EventBus from "./common/EventBus";
 import ListContractView from "./view/ListContractView";
+import ListStaff from "./view/ListStaff";
 
 const App = () => {
   const [showLogin, setLoginVisible] = useState(false);
@@ -100,17 +101,17 @@ const App = () => {
               </Link>
             </li>
           )}
-          {showCreateStaff && (
+          {/* {showCreateStaff && (
             <li className="nav-item">
               <Link to={"/create-user"} className="nav-link">
                 Manage Staff
               </Link>
             </li>
-          )}
+          )} */}
           {showManageContract && (
             <li className="nav-item">
-              <Link to={"/contract-customer"} className="nav-link">
-                Manage Contract
+              <Link to={"/manage-staff"} className="nav-link">
+                Manage Staff
               </Link>
             </li>
           )}
@@ -184,11 +185,13 @@ const App = () => {
           <Route path="/register" element={<Register />} /> */}
 
           <Route path="/profile" element={<Profile />} />
-          <Route path="/customer" element={<BoardUser />} />
+          {/* <Route path="/customer" element={<BoardUser />} /> */}
+
+          <Route path="/customer" element={<ListCustomer />} />
           <Route path="/staff" element={<BoardModerator />} />
           <Route path="/admin" element={<BoardAdmin />} />
           <Route path="/create-user" element={<CreateUser />} />
-          <Route path="/contract-customer" element={<ListCustomer />} />
+          <Route path="/manage-staff" element={<ListStaff />} />
           <Route path="/contract" element={<ListContractView />} />
           <Route path="/create-contract" element={<CreateContract />} />
 

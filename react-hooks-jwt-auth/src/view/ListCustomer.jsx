@@ -4,7 +4,7 @@ import UserService from "../services/user.service";
 import '../style/editListStaff.scss';
 import '../style/listContractCustomer.scss';
 import CreateUser from './CreateUser';
-import Customer from './Staff';
+import Customer from './Customer';
 import EditListCustomer from './EditListStaff';
 import ListContractCustomer from './ListContractCustomer';
 import '../style/listStaff.scss';
@@ -47,7 +47,7 @@ function ListCustomer({ data }) {
     )
 
   }, []);
-  console.log(content)
+  console.log(content);
 
   const [isShow, setIsShow] = useState(false);
   const [isShowContract, setIsShowContract] = useState(false);
@@ -65,7 +65,7 @@ function ListCustomer({ data }) {
         <div className="container-search_liststaff">
           <button className="button-create"
             onClick={() => { setCreateUser(true) }}>
-            Create staff
+            Create Customer
           </button>         
         </div>
         <div className='tableContainer'>
