@@ -82,6 +82,14 @@ const Login = ({ closeModal }) => {
             alt="profile-img"
             className="profile-img-card"
           />
+          {/* <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+          <lord-icon
+            src="https://cdn.lordicon.com/bhfjfgqz.json"
+            trigger="hover"
+            colors="primary:#121331"
+            state="intro"
+            style={{width:"250px", height:"250px"}}>
+          </lord-icon> */}
 
           <Form onSubmit={handleLogin} ref={form}>
             <div className="form-group">

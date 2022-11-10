@@ -1,21 +1,27 @@
 .container_liststaff {
     // background-color: rgb(148, 148, 148);
     padding: 100px 0;
+    max-width: max-content;
+}
+
+.tableContainer{
+    display: flex;
 }
 
 .content-table {
+    display: inline-block;
     background-color: #fff;
     border-collapse: collapse;
     margin: 0 auto;
     font-size: 0.9rem;
-    min-width: 80%;
+    min-width: 60%;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .content-table thead tr {
-    background-color: #bbbbbb;
+    background-color: #6da7dd;
     color: #fff;
     text-align: left;
     font-weight: bold;
@@ -24,7 +30,7 @@
 
 .content-table th,
 .content-table td {
-    padding: 12px 30px;
+    padding: 12px 25px;
 }
 
 .content-table tbody tr {
@@ -45,8 +51,10 @@
 }
 
 .container-search_liststaff {
-    // width: 50%;
-    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
     margin-left: auto;
 }
 
@@ -55,7 +63,7 @@
     background-color: #fff;
     display: flex;
     width: 60%;
-    margin: auto;
+    margin: 0;
     padding: 3px;
     border-radius: 5px;
 }
@@ -67,9 +75,9 @@
 }
 
 .button-search_liststaff {
-    margin: 2px;
+    margin-left: 2px;
     width: 100px;
-    background-color: #bbbbbb;
+    background-color: #6da7dd;
     border-radius: 5px;
     border: none;
     font-size: 16px;
@@ -78,7 +86,7 @@
 }
 
 .button-search_liststaff:hover {
-    background-color: #838282;
+    background-color: #50769a;
     color: #fff;
 }
 
@@ -149,12 +157,12 @@ select:focus {
     font-size: 15px;
     font-weight: bold;
     padding: 15px;
-    background-color: #bbbbbb;
+    background-color: #6da7dd;
     border-radius: 5px;
     border: 0;
 }
 .button-create:hover{
     cursor: pointer;
-    background-color: #727070;
-    color: rgb(255, 255, 255);
+    background-color: #213b54;
+    color: rgb(253, 252, 252);
 }

@@ -174,7 +174,7 @@ const App = () => {
 
 
 
-      <div className="container mt-3" style={{ marginTop: "70px !important" }}>
+      <div className="container mt-3" style={{ paddingTop:"60px" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />

@@ -7,6 +7,7 @@ import ListContractCustomer from './ListContractCustomer';
 import '../style/listContractCustomer.scss';
 import '../style/editListStaff.scss';
 import UserService from "../services/user.service";
+import CreateUser from './CreateUser';
 
 ListCustomer.propTypes = {
   data: PropTypes.array,
@@ -61,6 +62,7 @@ function ListCustomer({ data }) {
   const [isShow, setIsShow] = useState(false);
   const [isShowContract, setIsShowContract] = useState(false);
   const [customerTemp, setCustomerTemp] = useState(null);
+  const [createUser, setCreateUser] = useState(false);
 
   const handleCloseModal = () => {
     setIsShow(false);
@@ -71,7 +73,15 @@ function ListCustomer({ data }) {
     <React.Fragment>
       <div className="container_liststaff">
         <div className="container-search_liststaff">
-          <button className="button-create" >Create staff</button>
+
+
+          <button className="button-create"
+            onClick={() => { setCreateUser(true) }}>
+            Create staff
+          </button>
+
+
+
           <div className="main_search">
             <input
               className="input_liststaff"
@@ -80,37 +90,39 @@ function ListCustomer({ data }) {
             />{' '}
             <button className="button-search_liststaff"
             //  onClick={handleSearch}
-             >
+            >
               <BsSearch style={{ color: 'white' }} size={20} />
             </button>
           </div>
         </div>
-        <table className="content-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>NAME</th>
-              <th>GENDER</th>
-              <th>FOLK</th>
-              <th>BIRTHDAY</th>
-              <th>EMAIL</th>
-              <th>PHONE</th>
-              <th>ADDRESS</th>
-              <th>ACTIONS</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listData.map((customer) => (
-              <Customer
-                key={customer.id}
-                customer={customer}
-                setIsShow={setIsShow}
-                setIsShowContract={setIsShowContract}
-                setCustomerTemp={setCustomerTemp}
-              />
-            ))}
-          </tbody>
-        </table>
+        <div className='tableContainer'>
+          <table className="content-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>GENDER</th>
+                <th>FOLK</th>
+                <th>BIRTHDAY</th>
+                <th>EMAIL</th>
+                <th>PHONE</th>
+                <th>ADDRESS</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              {listData.map((customer) => (
+                <Customer
+                  key={customer.id}
+                  customer={customer}
+                  setIsShow={setIsShow}
+                  setIsShowContract={setIsShowContract}
+                  setCustomerTemp={setCustomerTemp}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
         {/* style={isShow?{display:"flex"}:{display:"none"}} */}
         {isShow && (
           <div className="modalCst">
@@ -132,6 +144,7 @@ function ListCustomer({ data }) {
             </div>
           </div>
         )}
+        {createUser && <CreateUser setCreateUser={setCreateUser} />}
       </div>
     </React.Fragment>
   );
