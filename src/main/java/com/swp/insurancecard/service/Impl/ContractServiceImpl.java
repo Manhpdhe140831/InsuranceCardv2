@@ -68,11 +68,11 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public ContractDto updateContract(ContractDto contract, Long id) {
+    public ContractDto updateContract(ContractDto contract) {
         if (null != contract) {
             Contract contractObj = null;
-            if (null != id) {
-                Optional<Contract> optional = repository.findById(id);
+            if (null != contract.getId()) {
+                Optional<Contract> optional = repository.findById(contract.getId());
                 if (optional.isPresent()) {
                     contractObj = optional.get();
                 }

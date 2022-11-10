@@ -10,7 +10,7 @@ public interface ContractService {
 
     ContractDto saveContract(ContractDto contract);
 
-    ContractDto updateContract(ContractDto contract, Long id);
+    ContractDto updateContract(ContractDto contract);
 
     Boolean removeContract(Long id);
 

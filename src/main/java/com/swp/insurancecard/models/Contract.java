@@ -15,7 +15,7 @@ import java.util.Date;
 public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(name = "code")
     private String code;
     @Column(name = "contractBeginDate")
@@ -25,11 +25,11 @@ public class Contract {
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date endDate;
     @Column(name = "priceContract")
-    private double priceContract;
+    private Double priceContract;
     @Column(name = "firstPaymentFee")
-    private double FPF;
+    private Double FPF;
     @Column(name = "secondPaymentFee")
-    private double SPF;
+    private Double SPF;
     @Column(name = "firstPaymentDate")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date FPFDate;
