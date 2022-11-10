@@ -58,21 +58,22 @@
 }
 
 .btn-create-contract button {
-  height: 50px;
-  border: 2px solid #fff;
-  background: #50769a;
-  border-radius: 1px;
-  font-size: 20px;
-  color: #e9f4fb;
-  font-weight: 700;
-  cursor: pointer;
-  outline: none;
+    height: 50px;
+    border: 2px solid rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 20px;
+    color: #000000;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 10px;
 }
 
 .btn-create-contract button:hover {
-  background-color: #334179;
-  opacity: 0.8;
-  transition: 0.5s;
+    background-color: rgb(196, 188, 188);
+    opacity: 0.8;
+    transition: .5s;
 }
 
 input::-webkit-outer-spin-button,
@@ -103,4 +104,13 @@ h4{
 *{
   margin:0;
   padding:0;
+}
+.createContractBackground{
+  top: 0;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  animation: fadeIn ease-in 0.4s;
 }
