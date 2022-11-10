@@ -26,11 +26,11 @@ import ListStaff from "./view/ListStaff";
 const App = () => {
   const [showLogin, setLoginVisible] = useState(false);
   const [showSignup, setSignupVisible] = useState(false);
-  const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showCreateStaff, setShowCreateStaff] = useState(false);
   const [showManageContract, setShowManageContract] = useState(false);
-  const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [showContract, setShowContract] = useState(false);
+  const [showContractStaff, setShowContractStaff] = useState(false);
+  const [showCustomer, setShowCustomer] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
 
@@ -39,11 +39,12 @@ const App = () => {
 
     if (user) {
       setCurrentUser(user);
-      setShowModeratorBoard(user.roles.includes("ROLE_STAFF"));
-      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
       setShowCreateStaff(user.roles.includes("ROLE_ADMIN"));
       setShowManageContract(user.roles.includes("ROLE_ADMIN"));
-      setShowContract(user.roles.includes("ROLE_STAFF"));
+      setShowContractStaff(user.roles.includes("ROLE_STAFF"));
+      setShowCustomer(user.roles.includes("ROLE_STAFF"));
+      setShowContract(user.roles.includes("ROLE_ADMIN"));
+
     }
 
     EventBus.on("logout", () => {
@@ -57,11 +58,11 @@ const App = () => {
 
   const logOut = () => {
     AuthService.logout();
-    setShowModeratorBoard(false);
-    setShowAdminBoard(false);
     setShowCreateStaff(false);
     setShowManageContract(false);
     setShowContract(false);
+    setShowContractStaff(false);
+    setShowCustomer(false);
     setCurrentUser(undefined);
   };
 
@@ -78,23 +79,9 @@ const App = () => {
             </Link>
           </li>
 
-          {showModeratorBoard && (
-            <li className="nav-item">
-              <Link to={"/staff"} className="nav-link">
-                Staff Board
-              </Link>
-            </li>
-          )}
 
-          {showAdminBoard && (
-            <li className="nav-item">
-              <Link to={"/admin"} className="nav-link">
-                Admin Board
-              </Link>
-            </li>
-          )}
 
-          {currentUser && (
+          {showCustomer && (
             <li className="nav-item">
               <Link to={"/customer"} className="nav-link">
                 Customer
@@ -116,6 +103,13 @@ const App = () => {
             </li>
           )}
           {showContract && (
+            <li className="nav-item">
+              <Link to={"/contract"} className="nav-link">
+                Contract
+              </Link>
+            </li>
+          )}
+          {showContractStaff && (
             <li className="nav-item">
               <Link to={"/contract"} className="nav-link">
                 Contract
