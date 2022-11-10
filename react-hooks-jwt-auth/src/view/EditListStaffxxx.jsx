@@ -5,25 +5,29 @@ import { GrClose } from 'react-icons/gr';
 import { RiCake2Line } from 'react-icons/ri';
 import { SlLocationPin } from 'react-icons/sl';
 import '../style/editListStaff.scss';
-EditListCustomerVip.propTypes = {};
+EditListStaff.propTypes = {};
 
-function EditListCustomerVip({ customer, handleCloseModal }) {
+function EditListStaff({ staff, handleCloseModal }) {
   // const [accountStaff, setAccountStaff] = useState({
   //   username: '',
   //   password: '',
   // });
-  const [profileCustomer, setProfileCustomer] = useState({
-    name: customer?.name,
-    gender: customer?.gender,
-    birthday: customer?.birthday,
-    folk: customer?.folk,
-    phone: customer?.phone,
-    email: customer?.email,
-    address: customer?.address,
+  const [profileStaff, setProfileStaff] = useState({
+    name: staff?.name,
+    gender: staff?.gender,
+    birthday: staff?.birthday,
+    folk: staff?.folk,
+    phone: staff?.phone,
+    email: staff?.email,
+  });
+  const [addressStaff, setAddressStaff] = useState({
+    country: staff?.country,
+    city: staff?.city,
+    district: staff?.district,
+    street: staff?.street,
   });
 
-
-  const gender = profileCustomer.gender === 'MALE' ? true : false;
+  const gender = profileStaff.gender === 'MALE' ? true : false;
   console.log(gender);
   return (
     <div className="container">
@@ -33,22 +37,25 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
             <GrClose size={34} />
           </div>
           <div className="row no-gutters">
-            <div className="col-md-6 d-flex align-items-stretch">
-              <div className="contact-wrap w-100 p-md-5 p-4">              
+            <div className="col-md-7 d-flex align-items-stretch">
+              <div className="contact-wrap w-100 p-md-5 p-4">
+                <div id="form-message-warning" className="mb-4"></div>
+                <div id="form-message-success" className="mb-4">
+                  Your message was sent, thank you!
+                </div>
                 <form method="POST" id="contactForm" name="contactForm">
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
-                        <p>NAME</p>
                         <input
                           type="text"
                           className="form-control"
                           name="name"
                           id="name"
-                          value={profileCustomer.name}
+                          value={profileStaff.name}
                           onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
+                            setProfileStaff({
+                              ...profileStaff,
                               name: e.target.value,
                             })
                           }
@@ -58,16 +65,15 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
-                      <p>EMAIL</p>
                         <input
                           type="email"
                           className="form-control"
                           name="email"
                           id="email"
-                          value={profileCustomer.email}
+                          value={profileStaff.email}
                           onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
+                            setProfileStaff({
+                              ...profileStaff,
                               email: e.target.value,
                             })
                           }
@@ -77,16 +83,15 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                     </div>
                     <div className="col-md-12">
                       <div className="form-group">
-                      <p>PHONE</p>
                         <input
                           type="phone"
                           className="form-control"
                           name="phone"
                           id="phone"
-                          value={profileCustomer.phone}
+                          value={profileStaff.phone}
                           onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
+                            setProfileStaff({
+                              ...profileStaff,
                               phone: e.target.value,
                             })
                           }
@@ -95,19 +100,19 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                       </div>
                     </div>
                     <div className="col-md-6">
-                      <div className="form-group">                      
+                      <div className="form-group">
                         <input
                           type="radio"
                           className="form-control-radio"
                           name="gender"
                           id="gender"
                           checked={gender}
-                          value={profileCustomer.gender}
+                          value={profileStaff.gender}
                           onChange={() =>
-                            setProfileCustomer({ ...profileCustomer, gender: 'MALE' })
+                            setProfileStaff({ ...profileStaff, gender: 'MALE' })
                           }
                         />
-                        {/* (e)=>setProfileCustomer({...profileCustomer,gender:e.target.value}) */}
+                        {/* (e)=>setProfileStaff({...profileStaff,gender:e.target.value}) */}
                         MALE
                       </div>
                     </div>
@@ -119,30 +124,29 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                           name="gender"
                           id="gender"
                           checked={!gender}
-                          value={profileCustomer.gender}
+                          value={profileStaff.gender}
                           onChange={() =>
-                            setProfileCustomer({
-                              ...profileCustomer,
+                            setProfileStaff({
+                              ...profileStaff,
                               gender: 'FEMALE',
                             })
                           }
                         />
-                        {/* (e)=>setProfileCustomer({...profileCustomer,gender:e.target.value}) */}
+                        {/* (e)=>setProfileStaff({...profileStaff,gender:e.target.value}) */}
                         FEMALE
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
-                      <p>FOLK</p>
                         <input
                           type="text"
                           className="form-control"
                           name="folk"
                           id="folk"
-                          value={profileCustomer.folk}
+                          value={profileStaff.folk}
                           onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
+                            setProfileStaff({
+                              ...profileStaff,
                               folk: e.target.value,
                             })
                           }
@@ -152,20 +156,56 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
-                      <p>BIRTHDAY</p>
                         <input
                           type="date"
                           className="form-control"
                           name="birthday"
                           id="birthday"
-                          value={profileCustomer.birthday}
+                          value={profileStaff.birthday}
                           onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
+                            setProfileStaff({
+                              ...profileStaff,
                               birthday: e.target.value,
                             })
                           }
                           placeholder="Birthday"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-12">Address</div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="country"
+                          id="country"
+                          value={addressStaff.country}
+                          onChange={(e) =>
+                            setAddressStaff({
+                              ...addressStaff,
+                              country: e.target.value,
+                            })
+                          }
+                          placeholder="Country"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="city"
+                          id="city"
+                          value={addressStaff.city}
+                          onChange={(e) =>
+                            setAddressStaff({
+                              ...addressStaff,
+                              city: e.target.value,
+                            })
+                          }
+                          placeholder="City"
                         />
                       </div>
                     </div>
@@ -174,19 +214,37 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                         <input
                           type="text"
                           className="form-control"
-                          name="country"
-                          id="country"
-                          value={profileCustomer.address}
+                          name="district"
+                          id="district"
+                          value={addressStaff.district}
                           onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
-                              address: e.target.value,
+                            setAddressStaff({
+                              ...addressStaff,
+                              district: e.target.value,
                             })
                           }
-                          placeholder="address"
+                          placeholder="District"
                         />
                       </div>
-                    </div>                    
+                    </div>
+                    <div className="col-md-12">
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="street"
+                          id="street"
+                          value={addressStaff.street}
+                          onChange={(e) =>
+                            setAddressStaff({
+                              ...addressStaff,
+                              street: e.target.value,
+                            })
+                          }
+                          placeholder="Street"
+                        />
+                      </div>
+                    </div>
                     <div className="col-md-12">
                       <div className="form-group">
                         <input
@@ -201,7 +259,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                 </form>
               </div>
             </div>
-            <div className="col-md-6 d-flex align-items-stretch">
+            <div className="col-md-5 d-flex align-items-stretch">
               <div className="info-wrap bg-primary w-100 p-lg-5 p-4">
                 <div className="dbox w-100 d-flex align-items-center">
                   <div className="icon d-flex align-items-center justify-content-center">
@@ -209,7 +267,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                   </div>
                   <div className="text pl-3">
                     <p>
-                      <span>Name:</span> {profileCustomer.name}
+                      <span>Name:</span> {profileStaff.name}
                     </p>
                   </div>
                 </div>
@@ -219,7 +277,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                   </div>
                   <div className="text pl-3">
                     <p>
-                      <span>Phone:</span> {profileCustomer.phone}
+                      <span>Phone:</span> {profileStaff.phone}
                     </p>
                   </div>
                 </div>
@@ -239,7 +297,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                   </div>
                   <div className="text pl-3">
                     <p>
-                      <span>Email:</span> {profileCustomer.email}
+                      <span>Email:</span> {profileStaff.email}
                     </p>
                   </div>
                 </div>
@@ -249,7 +307,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                   </div>
                   <div className="text pl-3">
                     <p>
-                      <span>Folk:</span> {profileCustomer.folk}
+                      <span>Folk:</span> {profileStaff.folk}
                     </p>
                   </div>
                 </div>
@@ -259,7 +317,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                   </div>
                   <div className="text pl-3">
                     <p>
-                      <span>Birthday:</span> {profileCustomer.birthday}
+                      <span>Birthday:</span> {profileStaff.birthday}
                     </p>
                   </div>
                 </div>
@@ -269,8 +327,9 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                   </div>
                   <div className="text pl-3">
                     <p>
-                    <span>Address:</span>
-                      {profileCustomer.address}
+                      <span>Address:</span>
+                      {addressStaff.country}-{addressStaff.city}-
+                      {addressStaff.district}-{addressStaff.street}
                     </p>
                   </div>
                 </div>
@@ -283,4 +342,4 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
   );
 }
 
-export default EditListCustomerVip;
+export default EditListStaff;

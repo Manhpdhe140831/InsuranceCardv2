@@ -4,8 +4,8 @@ import UserService from "../services/user.service";
 import '../style/editListStaff.scss';
 import '../style/listContractCustomer.scss';
 import CreateUser from './CreateUser';
-import Customer from './Customer';
-import EditListCustomer from './EditListCustomer';
+import Customer from './Staff';
+import EditListCustomer from './EditListStaff';
 import ListContractCustomer from './ListContractCustomer';
 import '../style/listStaff.scss';
 

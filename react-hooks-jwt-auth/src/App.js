@@ -20,7 +20,7 @@ import ListCustomer from "./view/ListCustomer";
 import CreateContract from "./view/CreateContract"
 
 import EventBus from "./common/EventBus";
-import ListContract from "./view/ListContract";
+import ListContractView from "./view/ListContractView";
 
 const App = () => {
   const [showLogin, setLoginVisible] = useState(false);
@@ -189,7 +189,7 @@ const App = () => {
           <Route path="/admin" element={<BoardAdmin />} />
           <Route path="/create-user" element={<CreateUser />} />
           <Route path="/contract-customer" element={<ListCustomer />} />
-          <Route path="/contract" element={<ListContract />} />
+          <Route path="/contract" element={<ListContractView />} />
           <Route path="/create-contract" element={<CreateContract />} />
 
           {/* <Route path="/list-contract" element={<ListContract />} /> */}
