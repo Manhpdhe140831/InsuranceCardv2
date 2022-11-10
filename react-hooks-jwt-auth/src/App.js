@@ -5,12 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import AuthService from "./services/auth.service";
-
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Home from "./components/Home";
 import Profile from "./components/Profile";
-import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import HomePage from "./view/HomePage"
@@ -19,10 +16,10 @@ import Contract from "./view/Contract";
 import ListCustomer from "./view/ListCustomer";
 import CreateContract from "./view/CreateContract"
 import ListAccident from "./view/AccidentStaffView";
-
 import EventBus from "./common/EventBus";
 import ListContractView from "./view/ListContractView";
 import ListStaff from "./view/ListStaff";
+import ListCompensation from "./view/ListCompensationStaffView";
 
 const App = () => {
   const [showLogin, setLoginVisible] = useState(false);
@@ -33,6 +30,7 @@ const App = () => {
   const [showContractStaff, setShowContractStaff] = useState(false);
   const [showCustomer, setShowCustomer] = useState(false);
   const [showAccident, setShowAccident] = useState(false);
+  const [showCompensation, setShowCompensation] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
 
@@ -47,6 +45,7 @@ const App = () => {
       setShowCustomer(user.roles.includes("ROLE_STAFF"));
       setShowContract(user.roles.includes("ROLE_ADMIN"));
       setShowAccident(user.roles.includes("ROLE_STAFF"));
+      setShowCompensation(user.roles.includes("ROLE_STAFF"));
     }
 
     EventBus.on("logout", () => {
@@ -67,6 +66,7 @@ const App = () => {
     setShowCustomer(false);
     setCurrentUser(undefined);
     setShowAccident(false);
+    setShowCompensation(false);
   };
 
   return (
@@ -123,6 +123,13 @@ const App = () => {
             <li className="nav-item">
               <Link to={"/accident"} className="nav-link">
                 Accident
+              </Link>
+            </li>
+          )}
+          {showCompensation && (
+            <li className="nav-item">
+              <Link to={"/compensation"} className="nav-link">
+                Compensation
               </Link>
             </li>
           )}
@@ -199,6 +206,7 @@ const App = () => {
           <Route path="/contract" element={<ListContractView />} />
           <Route path="/create-contract" element={<CreateContract />} />
           <Route path="/accident" element={<ListAccident />} />
+          <Route path="/compensation" element={<ListCompensation />} />
 
           {/* <Route path="/list-contract" element={<ListContract />} /> */}
         </Routes>
