@@ -1,5 +1,5 @@
 .container-create-contract {
-  font-size: 17px;
+  font-size: 5px;
   background-color: #f0f0f0;
   padding: 0
 }
@@ -16,7 +16,7 @@
 
 .main-create-contract {
   background-color: rgb(255, 255, 255);
-  padding: 80px;
+  padding: 0px;
   border-radius: 1px;
 }
 
@@ -25,11 +25,10 @@
 }
 
 .left-profile {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .container-create-contract input:not([type='radio']) {
-  
   display: inline-block;
   border: 1px solid #d1d5db;
   background-color: #f9fafb;
@@ -45,7 +44,6 @@
 
 .btn-create-contract {
   display: flex;
-  margin-top: 0;
   justify-content: space-around;
 }
 
@@ -80,7 +78,7 @@ input::-webkit-inner-spin-button {
 .container-create-contract h1 {
   font-size: xxx-large;
   text-align: center;
-  margin-bottom: 50px;
+  
 }
 .grid {
   display:grid;
@@ -92,7 +90,8 @@ input::-webkit-inner-spin-button {
 }
 
 h4{
-  padding: 5px 0;
+  padding: 0px 0;
+ 
 }
 
 *{

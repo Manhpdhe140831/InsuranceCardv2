@@ -8,7 +8,15 @@ import {
     BsFillFileEarmarkMedicalFill,
 
 } from 'react-icons/bs'
-import cryptoRandomString from 'crypto-random-string';
+function makeid(length) {
+    var result = '';
+    var characters = '0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
 
 const CreateContract = () => {
     const [contract, setContract] = useState({
@@ -39,7 +47,7 @@ const CreateContract = () => {
                                     <BsFillPersonFill className="icon" /> Code{' '}
                                     <input
                                         placeholder="Enter Name"
-                                        value={cryptoRandomString({ length: 8, type: 'numeric' })}
+                                        value={makeid(8)}
                                         disabled
                                     />
                                 </h4>

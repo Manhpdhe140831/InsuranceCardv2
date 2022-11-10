@@ -17,6 +17,7 @@ import HomePage from "./view/HomePage"
 import CreateUser from "./view/CreateUser";
 import Contract from "./view/Contract";
 import ListCustomer from "./view/ListCustomer";
+import CreateContract from "./view/CreateContract"
 
 import EventBus from "./common/EventBus";
 import ListContract from "./view/ListContract";
@@ -174,7 +175,7 @@ const App = () => {
 
 
 
-      <div className="container mt-3" style={{ paddingTop:"60px" }}>
+      <div className="container mt-3" style={{ paddingTop: "60px" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -189,6 +190,7 @@ const App = () => {
           <Route path="/create-user" element={<CreateUser />} />
           <Route path="/contract-customer" element={<ListCustomer />} />
           <Route path="/contract" element={<ListContract />} />
+          <Route path="/create-contract" element={<CreateContract />} />
 
           {/* <Route path="/list-contract" element={<ListContract />} /> */}
         </Routes>
