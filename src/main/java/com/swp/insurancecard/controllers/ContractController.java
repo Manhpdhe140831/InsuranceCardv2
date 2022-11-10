@@ -24,7 +24,7 @@ public class ContractController {
     }
 
     @PostMapping(value = "/save")
-    @PreAuthorize("hasRole('STAFF')")
+    @PreAuthorize("hasRole('STAFF') or hasRole('ADMIN')")
     public ResponseEntity<ContractDto> createContract(@RequestBody ContractDto contractDto){
         ContractDto contract = contractService.saveContract(contractDto);
         return new ResponseEntity<>(contract, HttpStatus.OK);
@@ -36,10 +36,10 @@ public class ContractController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/update/{id}")
-    @PreAuthorize("hasRole('STAFF')")
-    public ResponseEntity<ContractDto> updateContract(@RequestBody ContractDto contractDto, @PathVariable Long id){
-        ContractDto contract = contractService.updateContract(contractDto, id);
+    @RequestMapping(method = RequestMethod.PUT, value = "/update")
+    @PreAuthorize("hasRole('STAFF') or hasRole('ADMIN')")
+    public ResponseEntity<ContractDto> updateContract(@RequestBody ContractDto contractDto){
+        ContractDto contract = contractService.updateContract(contractDto);
         return new ResponseEntity<>(contract, HttpStatus.OK);
     }
     @PostMapping(value = "/getContractById/{id}")

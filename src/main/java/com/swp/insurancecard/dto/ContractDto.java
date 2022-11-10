@@ -13,13 +13,13 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 public class ContractDto {
-    private long id;
+    private Long id;
     private String code;
     private Date beginDate;
     private Date endDate;
-    private double priceContract;
-    private double FPF;
-    private double SPF;
+    private Double priceContract;
+    private Double FPF;
+    private Double SPF;
     private Date FPFDate;
     private Date SPFDate;
     private Date contractDate;

@@ -28,6 +28,7 @@ const App = () => {
   const [showManageContract, setShowManageContract] = useState(false);
   const [showContract, setShowContract] = useState(false);
   const [showContractStaff, setShowContractStaff] = useState(false);
+  const [showContractCustomer, setShowContractCustomer] = useState(false);
   const [showCustomer, setShowCustomer] = useState(false);
   const [showAccident, setShowAccident] = useState(false);
   const [showCompensation, setShowCompensation] = useState(false);
@@ -42,6 +43,7 @@ const App = () => {
       setShowCreateStaff(user.roles.includes("ROLE_ADMIN"));
       setShowManageContract(user.roles.includes("ROLE_ADMIN"));
       setShowContractStaff(user.roles.includes("ROLE_STAFF"));
+      setShowContractCustomer(user.roles.includes("ROLE_CUSTOMER"));
       setShowCustomer(user.roles.includes("ROLE_STAFF"));
       setShowContract(user.roles.includes("ROLE_ADMIN"));
       setShowAccident(user.roles.includes("ROLE_STAFF"));
@@ -67,6 +69,7 @@ const App = () => {
     setCurrentUser(undefined);
     setShowAccident(false);
     setShowCompensation(false);
+    setShowContractCustomer(false);
   };
 
   return (
@@ -119,6 +122,13 @@ const App = () => {
               </Link>
             </li>
           )}
+          {showContractCustomer && (
+            <li className="nav-item">
+              <Link to={"/contract"} className="nav-link">
+                Contract
+              </Link>
+            </li>
+          )}
           {showAccident && (
             <li className="nav-item">
               <Link to={"/accident"} className="nav-link">
@@ -133,6 +143,7 @@ const App = () => {
               </Link>
             </li>
           )}
+
         </div>
 
         {currentUser ? (
@@ -155,6 +166,7 @@ const App = () => {
                 Login
               </Link>
             </li>
+
             <li className="nav-item">
               <Link to={"/register"} className="nav-link">
                 Sign Up

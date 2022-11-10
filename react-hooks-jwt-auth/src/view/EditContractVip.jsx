@@ -19,7 +19,7 @@ import UserService from "../services/user.service";
 //     return result;
 // }
 
-const EditContractVip = ({ contract ,handleCloseModal }) => {
+const EditContractVip = ({ contract, handleCloseModal }) => {
   const [contractDetail, setContractDetail] = useState({
     code: contract.code,
     beginDate: contract.beginDate,
@@ -57,7 +57,11 @@ const EditContractVip = ({ contract ,handleCloseModal }) => {
   }, []);
   console.log(customer);
 
-
+  const handleClickCreate = () => {
+    UserService.updateContract(contractDetail).then(() => {
+      console.log("update success");
+    });
+  }
 
   return (
     <div>
@@ -66,9 +70,9 @@ const EditContractVip = ({ contract ,handleCloseModal }) => {
         <div className="container-create-contract">
           <form action="">
             <div className="main-create-contract">
-            <div className="icon-close" onClick={handleCloseModal}>
-            <GrClose size={34} />
-          </div>
+              <div className="icon-close" onClick={handleCloseModal}>
+                <GrClose size={34} />
+              </div>
               <h1>Create Contract</h1>
               <div className="Profile">
                 <div className="flex-container-profile">
@@ -279,7 +283,7 @@ const EditContractVip = ({ contract ,handleCloseModal }) => {
 
               <div className="btn-create-contract">
                 <input
-                  // onClick={() => handleClickCreate()}
+                  onClick={() => handleClickCreate()}
                   type="submit"
                   value="Update"
                   className="btn-input-create-vip"
