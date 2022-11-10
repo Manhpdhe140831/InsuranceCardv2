@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ContractService from "../services/contractService";
 import '../style/listStaff.scss';
 import CreateContract from "./CreateContract";
-import EditContract from './EditContract';
+import EditContractVip from './EditContractVip';
 import ContractView from './ContractView';
 ListContractView.propTypes = {
   data: PropTypes.array,
@@ -72,9 +72,13 @@ function ListContractView({ data }) {
       </div>
       {newContract && <CreateContract setNewContract={setNewContract} />}
       {isShow && (
-          <div className="modalCst">
-            <div className="modal-edit">
-              <EditContract
+          <div
+          //  className="modalCst"
+           >
+            <div 
+            // className="modal-edit"
+            >
+              <EditContractVip
                 contract={contractTemp}
                 handleCloseModal={handleCloseModal}
               />
