@@ -34,9 +34,10 @@ public class AccidentDto {
         }
     }
 
-    public AccidentDto (Date date, String code){
+    public AccidentDto (String code, Date date, String description){
         this.setCode(code);
         this.setDate(date);
+        this.setDescription(description);
     }
 
 }

@@ -137,7 +137,7 @@ public class AccidentServiceImpl implements AccidentService {
         List<AccidentDto> listResult = new ArrayList<>();
         for (Accident itemA: listAccident
         ) {
-            listResult.add(new AccidentDto(itemA.getDate(), itemA.getCode()));
+            listResult.add(new AccidentDto(itemA.getCode(), itemA.getDate(),itemA.getDescription()));
         }
         return listResult;
     }
