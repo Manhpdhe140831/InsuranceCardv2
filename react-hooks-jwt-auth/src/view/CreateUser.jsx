@@ -21,7 +21,7 @@ const CreateUser = ({ setCreateUser }) => {
         password: "",
         name: "",
         gender: "",
-        birthday: "",
+        dateOfBirth: "",
         email: "",
         address: "",
         phone: "",
@@ -115,11 +115,11 @@ const CreateUser = ({ setCreateUser }) => {
                                         <BsFillCalendarEventFill className="icon" /> Birthday:{" "}
                                         <input
                                             type="date"
-                                            value={profile.birthday}
+                                            value={profile.dateOfBirth}
                                             onChange={(e) => {
                                                 setProfile({
                                                     ...profile,
-                                                    birthday: e.target.value,
+                                                    dateOfBirth: e.target.value,
                                                 });
                                             }}
                                         />
