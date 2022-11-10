@@ -15,6 +15,7 @@ public class CompensationDto {
     private boolean status;
     private String description;
     private Date dateRequest;
+
     private Date dateResponse;
     private User user;
     private AccidentDto accidentDto;
