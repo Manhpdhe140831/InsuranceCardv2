@@ -2,13 +2,17 @@ package com.swp.insurancecard.dto;
 
 import com.swp.insurancecard.models.Role;
 import com.swp.insurancecard.models.User;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDto {
     private Long id;
     private String username;

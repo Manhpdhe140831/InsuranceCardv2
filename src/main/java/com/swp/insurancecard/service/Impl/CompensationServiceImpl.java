@@ -8,6 +8,7 @@ import com.swp.insurancecard.models.User;
 import com.swp.insurancecard.repository.CompensationRepository;
 import com.swp.insurancecard.service.CompensationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CompensationServiceImpl implements CompensationService {
     @Autowired
     CompensationRepository compensationRepository;
@@ -84,6 +85,14 @@ public class CompensationServiceImpl implements CompensationService {
 
     @Override
     public List<CompensationDto> getByUserId(Long id) {
-        return null;
+        List<Compensation> list = compensationRepository.getCompensationByUserId(id);
+        List<CompensationDto> result = new ArrayList<>();
+        if (list != null){
+            for (Compensation itemC: list
+                 ) {
+                result.add(new CompensationDto(itemC));
+            }
+        }
+        return result;
     }
 }

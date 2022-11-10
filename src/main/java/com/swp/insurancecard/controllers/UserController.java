@@ -24,7 +24,7 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/user")
-    @PreAuthorize("hasRole('STAFF') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('STAFF') or hasRole('ADMIN')")            
     public ResponseEntity<?> getAllUser(@RequestHeader("Authorization") String authHeader){
         Claims temp = jwtUtils.getAllClaimsFromToken(authHeader.substring(7));
         String role = temp.get("role").toString();

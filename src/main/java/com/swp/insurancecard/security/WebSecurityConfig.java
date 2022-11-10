@@ -88,6 +88,9 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
         .authorizeRequests().antMatchers("/api/auth/**").permitAll()
         .antMatchers("/api/test/**").permitAll()
             .antMatchers("/api/contract/**").permitAll()
+            .antMatchers("api/compensation/**").permitAll()
+            .antMatchers("api/accident/**").permitAll()
+
         .anyRequest().authenticated();
     
     http.authenticationProvider(authenticationProvider());
