@@ -67,7 +67,7 @@ const App = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-info" style={{ backgroundColor: "#50769a !important;", position: "fixed", right: "0", left: "0", top: "0" }}>
+      <nav className="navbar navbar-expand navbar-dark bg-info" style={{ backgroundColor: "#50769a !important;", position: "fixed", right: "0", left: "0", top: "0", zIndex:"10" }}>
         <Link to={"/"} className="navbar-brand">
           Insurance Card
         </Link>

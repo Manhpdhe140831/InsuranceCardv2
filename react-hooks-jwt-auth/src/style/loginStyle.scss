@@ -3,6 +3,7 @@
     width: 100vw;
     background-color: rgba($color: #000, $alpha: 0.5);
     position: fixed;
+    z-index: 100;
 }
 
 .LoginModal{
@@ -15,6 +16,7 @@
     border-radius: 5px;
     background-color: #fff;
     opacity: 1 !important;
+    z-index: 100;
 }
 
 .LoginModalContents{ 
@@ -23,6 +25,7 @@
     padding-bottom: 20px;
     display: flex;
     flex-direction: column;
+    z-index: 100;
 }
 
 .closeModal{

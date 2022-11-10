@@ -47,7 +47,7 @@ export default function HomeTabs() {
     };
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%', zIndex:"0" }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                     <Tab label="Registration Procedure" {...a11yProps(0)} />
