@@ -9,8 +9,11 @@ import com.swp.insurancecard.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 @Service
@@ -170,7 +173,16 @@ public class ContractServiceImpl implements ContractService {
                 }
             }
             if (null != contractObj) {
-                Date currentDate = new Date(System.currentTimeMillis());
+                java.util.Date date = new java.util.Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                String str = formatter.format(date);
+
+                Date currentDate = null;
+                try {
+                    currentDate = formatter.parse(str);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
                 if (currentDate.compareTo(contractObj.getEndDate()) > 0) {
 
                     contractObj.setCode(contractDto.getCode());
@@ -178,7 +190,7 @@ public class ContractServiceImpl implements ContractService {
                     contractObj.setEndDate(contractDto.getEndDate());
                     contractObj.setPriceContract(contractDto.getPriceContract());
                     contractObj.setFPF(contractDto.getFPF());
-                    contractObj.setSPF(contractDto.getSPF());
+                    contractObj.setSPF(contractDto.getSPF()+ 1000000);
                     contractObj.setFPFDate(contractDto.getFPFDate());
                     contractObj.setSPFDate(contractDto.getSPFDate());
                     contractObj.setContractDate(contractDto.getContractDate());
