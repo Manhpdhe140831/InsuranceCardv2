@@ -67,7 +67,7 @@ const App = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-info" style={{ backgroundColor: "#50769a !important;", position: "fixed", right: "0", left: "0", top: "0", zIndex:"10" }}>
+      <nav className="navbar navbar-expand navbar-dark bg-info" style={{ backgroundColor: "#50769a !important;", position: "fixed", right: "0", left: "0", top: "0", zIndex: "10" }}>
         <Link to={"/"} className="navbar-brand">
           Insurance Card
         </Link>
@@ -178,8 +178,8 @@ const App = () => {
 
       <div className="container mt-3" style={{ paddingTop: "60px" }}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
 
           {/* <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} /> */}
@@ -198,7 +198,7 @@ const App = () => {
           {/* <Route path="/list-contract" element={<ListContract />} /> */}
         </Routes>
       </div>
-      <HomePage />
+
     </div>
   );
 };
