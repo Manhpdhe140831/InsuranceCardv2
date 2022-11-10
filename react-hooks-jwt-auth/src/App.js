@@ -15,7 +15,7 @@ import CreateUser from "./view/CreateUser";
 import Contract from "./view/Contract";
 import ListCustomer from "./view/ListCustomer";
 import CreateContract from "./view/CreateContract"
-import ListAccident from "./view/AccidentStaffView";
+import ListAccident from "./view/ListAccidentStaffView";
 import EventBus from "./common/EventBus";
 import ListContractView from "./view/ListContractView";
 import ListStaff from "./view/ListStaff";

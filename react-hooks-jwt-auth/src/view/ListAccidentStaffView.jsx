@@ -69,10 +69,10 @@ function ListAccidentStaffView({ data }) {
         {/* style={isShow?{display:"flex"}:{display:"none"}} */}
         {isShow && (
           <div 
-          // className="modalCst"
+           className="modalCst"
           >
             <div 
-            // className="modal-edit"
+             className="modal-edit"
             >
               <EditAccident
                 accident={accidentTemp}
