@@ -11,4 +11,6 @@ public interface UserService {
     List<UserDto> getAllUserByAdmin();
 
     List<UserDto> getAllUserByStaff();
+
+    Boolean updateUser(UserDto userDto);
 }

@@ -1,5 +1,6 @@
 package com.swp.insurancecard.controllers;
 
+import com.swp.insurancecard.dto.ResponseDto;
 import com.swp.insurancecard.dto.UserDto;
 import com.swp.insurancecard.security.jwt.JwtUtils;
 import com.swp.insurancecard.service.UserService;
@@ -38,5 +39,17 @@ public class UserController {
             return null;
         }
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @PutMapping("/user/update")
+    @PreAuthorize("hasRole('STAFF') or hasRole('ADMIN')")
+    public ResponseEntity<?> updateUser(@RequestBody UserDto userDto){
+        String check = userService.validateUser(userDto);
+        if (check == "") {
+            Boolean result = userService.updateUser(userDto);
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(new ResponseDto<>(400, check), HttpStatus.BAD_REQUEST);
+        }
     }
 }

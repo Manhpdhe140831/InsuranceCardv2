@@ -24,12 +24,17 @@ const getAllUser = () => {
   return axios.get(API_USER + "user", { headers: authHeader() });
 }
 
+const updateUser = (user) => {
+  return axios.put(API_USER + "user/update", user, { headers: authHeader() });
+}
+
 const UserService = {
   getPublicContent,
   getUserBoard,
   getModeratorBoard,
   getAdminBoard,
-  getAllUser
+  getAllUser,
+  updateUser
 };
 
 export default UserService;

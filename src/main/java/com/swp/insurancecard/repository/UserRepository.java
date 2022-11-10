@@ -17,6 +17,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
   Boolean existsByEmail(String email);
 
+  User getUserById(Long id);
+
   @Query(value = "select a.* from users a, user_roles b where a.id = b.user_id and b.role_id != 1", nativeQuery = true)
   List<User> getAllByAdmin();
 

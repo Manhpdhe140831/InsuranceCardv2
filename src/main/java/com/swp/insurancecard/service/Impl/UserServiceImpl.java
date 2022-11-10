@@ -94,4 +94,39 @@ public class UserServiceImpl implements UserService {
         }
         return list;
     }
+
+    @Override
+    public Boolean updateUser(UserDto userDto) {
+        if(userDto!=null){
+            if(userDto.getId()!=null){
+                User user = userRepository.getUserById(userDto.getId());
+                if(userDto.getUsername()!=null){
+                    user.setUsername(userDto.getUsername());
+                }
+                if(userDto.getEmail()!=null){
+                    user.setEmail(userDto.getEmail());
+                }
+                if(userDto.getName()!=null){
+                    user.setName(userDto.getName());
+                }
+                if(userDto.getPhone()!=null){
+                    user.setPhone(userDto.getPhone());
+                }
+                if(userDto.getDateOfBirth()!=null){
+                    user.setDateOfBirth(userDto.getDateOfBirth());
+                }
+                if(userDto.getGender()!=null){
+                    user.setGender(userDto.getGender());
+                }
+                if(userDto.getAddress()!=null){
+                    user.setAddress(userDto.getAddress());
+                }
+                userRepository.save(user);
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
 }

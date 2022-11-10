@@ -5,6 +5,7 @@ import { GrClose } from 'react-icons/gr';
 import { RiCake2Line } from 'react-icons/ri';
 import { SlLocationPin } from 'react-icons/sl';
 import '../style/editListStaff.scss';
+import UserService from "../services/user.service";
 EditListCustomerVip.propTypes = {};
 
 function EditListCustomerVip({ customer, handleCloseModal }) {
@@ -13,6 +14,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
   //   password: '',
   // });
   const [profileCustomer, setProfileCustomer] = useState({
+    id: customer?.id,
     name: customer?.name,
     gender: customer?.gender,
     birthday: customer?.birthday,
@@ -25,9 +27,10 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
 
   const gender = profileCustomer.gender === 'MALE' ? true : false;
   console.log(gender);
- const handleOnClickSave=()=>{
-  // e.preventDefault();
-  console.log(profileCustomer);
+  const handleOnClickSave = () => {
+    UserService.updateUser(profileCustomer).then(() => {
+      console.log("update success");
+    });
   }
 
   return (
@@ -39,173 +42,173 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
           </div>
           <div className="row no-gutters">
             <div className="col-md-6 d-flex align-items-stretch">
-              <div className="contact-wrap w-100 p-md-5 p-4">     
-                       
+              <div className="contact-wrap w-100 p-md-5 p-4">
+
                 {/* <form id="contactForm" name="contactForm" className="saveFormStaff"> */}
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <p>NAME</p>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="name"
-                          id="name"
-                          value={profileCustomer.name}
-                          onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
-                              name: e.target.value,
-                            })
-                          }
-                          placeholder="Name"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                      <p>EMAIL</p>
-                        <input
-                          type="email"
-                          className="form-control"
-                          name="email"
-                          id="email"
-                          value={profileCustomer.email}
-                          onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
-                              email: e.target.value,
-                            })
-                          }
-                          placeholder="Email"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="form-group">
-                      <p>PHONE</p>
-                        <input
-                          type="phone"
-                          className="form-control"
-                          name="phone"
-                          id="phone"
-                          value={profileCustomer.phone}
-                          onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
-                              phone: e.target.value,
-                            })
-                          }
-                          placeholder="Phone"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">                      
-                        <input
-                          type="radio"
-                          className="form-control-radio"
-                          name="gender"
-                          id="gender"
-                          checked={gender}
-                          value={profileCustomer.gender}
-                          onChange={() =>
-                            setProfileCustomer({ ...profileCustomer, gender: 'MALE' })
-                          }
-                        />
-                        {/* (e)=>setProfileCustomer({...profileCustomer,gender:e.target.value}) */}
-                        MALE
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <input
-                          type="radio"
-                          className="form-control-radio"
-                          name="gender"
-                          id="gender"
-                          checked={!gender}
-                          value={profileCustomer.gender}
-                          onChange={() =>
-                            setProfileCustomer({
-                              ...profileCustomer,
-                              gender: 'FEMALE',
-                            })
-                          }
-                        />
-                        {/* (e)=>setProfileCustomer({...profileCustomer,gender:e.target.value}) */}
-                        FEMALE
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                      <p>FOLK</p>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="folk"
-                          id="folk"
-                          value={profileCustomer.folk}
-                          onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
-                              folk: e.target.value,
-                            })
-                          }
-                          placeholder="Folk"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                      <p>BIRTHDAY</p>
-                        <input
-                          type="date"
-                          className="form-control"
-                          name="birthday"
-                          id="birthday"
-                          value={profileCustomer.birthday}
-                          onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
-                              birthday: e.target.value,
-                            })
-                          }
-                          placeholder="Birthday"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="country"
-                          id="country"
-                          value={profileCustomer.address}
-                          onChange={(e) =>
-                            setProfileCustomer({
-                              ...profileCustomer,
-                              address: e.target.value,
-                            })
-                          }
-                          placeholder="address"
-                        />
-                      </div>
-                    </div>                    
-                    <div className="col-md-12">
-                      <div className="form-group">
-                        <input
-                          type="submit"
-                          value="Save"
-                          className="btn btn-primary"
-                          onClick={()=>handleOnClickSave()}
-                          
-                        />
-                        <div className="submitting"></div>
-                      </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <p>NAME</p>
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="name"
+                        id="name"
+                        value={profileCustomer.name}
+                        onChange={(e) =>
+                          setProfileCustomer({
+                            ...profileCustomer,
+                            name: e.target.value,
+                          })
+                        }
+                        placeholder="Name"
+                      />
                     </div>
                   </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <p>EMAIL</p>
+                      <input
+                        type="email"
+                        className="form-control"
+                        name="email"
+                        id="email"
+                        value={profileCustomer.email}
+                        onChange={(e) =>
+                          setProfileCustomer({
+                            ...profileCustomer,
+                            email: e.target.value,
+                          })
+                        }
+                        placeholder="Email"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-12">
+                    <div className="form-group">
+                      <p>PHONE</p>
+                      <input
+                        type="phone"
+                        className="form-control"
+                        name="phone"
+                        id="phone"
+                        value={profileCustomer.phone}
+                        onChange={(e) =>
+                          setProfileCustomer({
+                            ...profileCustomer,
+                            phone: e.target.value,
+                          })
+                        }
+                        placeholder="Phone"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <input
+                        type="radio"
+                        className="form-control-radio"
+                        name="gender"
+                        id="gender"
+                        checked={gender}
+                        value={profileCustomer.gender}
+                        onChange={() =>
+                          setProfileCustomer({ ...profileCustomer, gender: 'MALE' })
+                        }
+                      />
+                      {/* (e)=>setProfileCustomer({...profileCustomer,gender:e.target.value}) */}
+                      MALE
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <input
+                        type="radio"
+                        className="form-control-radio"
+                        name="gender"
+                        id="gender"
+                        checked={!gender}
+                        value={profileCustomer.gender}
+                        onChange={() =>
+                          setProfileCustomer({
+                            ...profileCustomer,
+                            gender: 'FEMALE',
+                          })
+                        }
+                      />
+                      {/* (e)=>setProfileCustomer({...profileCustomer,gender:e.target.value}) */}
+                      FEMALE
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <p>FOLK</p>
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="folk"
+                        id="folk"
+                        value={profileCustomer.folk}
+                        onChange={(e) =>
+                          setProfileCustomer({
+                            ...profileCustomer,
+                            folk: e.target.value,
+                          })
+                        }
+                        placeholder="Folk"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <p>BIRTHDAY</p>
+                      <input
+                        type="date"
+                        className="form-control"
+                        name="birthday"
+                        id="birthday"
+                        value={profileCustomer.birthday}
+                        onChange={(e) =>
+                          setProfileCustomer({
+                            ...profileCustomer,
+                            birthday: e.target.value,
+                          })
+                        }
+                        placeholder="Birthday"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-12">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="country"
+                        id="country"
+                        value={profileCustomer.address}
+                        onChange={(e) =>
+                          setProfileCustomer({
+                            ...profileCustomer,
+                            address: e.target.value,
+                          })
+                        }
+                        placeholder="address"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-12">
+                    <div className="form-group">
+                      <input
+                        type="submit"
+                        value="Save"
+                        className="btn btn-primary"
+                        onClick={() => handleOnClickSave()}
+
+                      />
+                      <div className="submitting"></div>
+                    </div>
+                  </div>
+                </div>
                 {/* </form> */}
               </div>
             </div>
@@ -277,7 +280,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                   </div>
                   <div className="text pl-3">
                     <p>
-                    <span>Address:</span>
+                      <span>Address:</span>
                       {profileCustomer.address}
                     </p>
                   </div>
