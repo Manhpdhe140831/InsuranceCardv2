@@ -18,6 +18,7 @@ import CreateUser from "./view/CreateUser";
 import Contract from "./view/Contract";
 import ListCustomer from "./view/ListCustomer";
 import CreateContract from "./view/CreateContract"
+import ListAccident from "./view/AccidentStaffView";
 
 import EventBus from "./common/EventBus";
 import ListContractView from "./view/ListContractView";
@@ -31,6 +32,7 @@ const App = () => {
   const [showContract, setShowContract] = useState(false);
   const [showContractStaff, setShowContractStaff] = useState(false);
   const [showCustomer, setShowCustomer] = useState(false);
+  const [showAccident, setShowAccident] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
 
@@ -44,7 +46,7 @@ const App = () => {
       setShowContractStaff(user.roles.includes("ROLE_STAFF"));
       setShowCustomer(user.roles.includes("ROLE_STAFF"));
       setShowContract(user.roles.includes("ROLE_ADMIN"));
-
+      setShowAccident(user.roles.includes("ROLE_STAFF"));
     }
 
     EventBus.on("logout", () => {
@@ -64,6 +66,7 @@ const App = () => {
     setShowContractStaff(false);
     setShowCustomer(false);
     setCurrentUser(undefined);
+    setShowAccident(false);
   };
 
   return (
@@ -113,6 +116,13 @@ const App = () => {
             <li className="nav-item">
               <Link to={"/contract"} className="nav-link">
                 Contract
+              </Link>
+            </li>
+          )}
+          {showAccident && (
+            <li className="nav-item">
+              <Link to={"/accident"} className="nav-link">
+                Accident
               </Link>
             </li>
           )}
@@ -188,6 +198,7 @@ const App = () => {
           <Route path="/manage-staff" element={<ListStaff />} />
           <Route path="/contract" element={<ListContractView />} />
           <Route path="/create-contract" element={<CreateContract />} />
+          <Route path="/accident" element={<ListAccident />} />
 
           {/* <Route path="/list-contract" element={<ListContract />} /> */}
         </Routes>
