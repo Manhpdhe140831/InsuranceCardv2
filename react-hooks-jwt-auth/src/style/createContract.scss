@@ -3,7 +3,7 @@
     background-color:   rgb(196, 188, 188);
     padding: 0;
     position: fixed;
-    top: 10%;
+    top: 5%;
     left: 32%;
 }
 
@@ -21,6 +21,7 @@
   background-color: rgb(255, 255, 255);
   padding: 0px;
   border-radius: 1px;
+  color: black;
 }
 
 .flex-profile {
@@ -60,7 +61,7 @@
 .btn-create-contract button {
     height: 50px;
     border: 2px solid rgb(0, 0, 0);
-    background: rgb(255, 255, 255);
+    background: #6da5da;
     border-radius: 5px;
     font-size: 20px;
     color: #000000;
@@ -71,7 +72,7 @@
 }
 
 .btn-create-contract button:hover {
-    background-color: rgb(196, 188, 188);
+    background-color: #07c5ff;
     opacity: 0.8;
     transition: .5s;
 }
