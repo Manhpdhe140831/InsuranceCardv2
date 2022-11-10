@@ -33,14 +33,30 @@ const CreateContract = ({ setNewContract }) => {
     enginenumber: "",
     chassisnumber: "",
     vehicletype: "",
+    accountDto:{
+        id: 0,
+    },
   });
 
-  const [customer, setCustomer] = useState();
+  const [customer, setCustomer] = useState([
+    {
+        id:1,
+        name:'a'
+    },
+    {
+        id:2,
+        name:'b'
+    },
+  ]);
 
   useEffect(() => {
     UserService.getCustomer().then((response) => {
       setCustomer(response.data);
-    });
+    })
+    // .catch(err => {
+    //     console.log('loicmnr');
+    //     console.log(err);
+    // })
   }, []);
   console.log(customer);
 
@@ -242,9 +258,12 @@ const CreateContract = ({ setNewContract }) => {
                   <h4>
                     <BsFillFileEarmarkMedicalFill className="icon" /> Chassis:{" "}
                     <br />
-                    <select>
-                      {customer.map((customer) => (
-                        <option value={customer.id}>customer.name</option>
+                    <select onChange={ (e)=>setContract({
+                          ...contract,
+                          accountDto:{ id: e.target.value}
+                        })}>                      
+                      {customer.map((customers) => (
+                        <option value={customers.id}>{customers.name}</option>
                       ))}                      
                     </select>
                   </h4>
@@ -253,7 +272,7 @@ const CreateContract = ({ setNewContract }) => {
             </div>
 
             <div className="btn-create-contract">
-              <button>Create</button>
+              <button onClick={console.log(contract)}>Create</button>
               <button>Cancel</button>
             </div>
           </div>
