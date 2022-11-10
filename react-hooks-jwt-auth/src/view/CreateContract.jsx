@@ -13,10 +13,10 @@ function makeid(length) {
     var characters = '0123456789';
     var charactersLength = characters.length;
     for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
-  }
+}
 
 const CreateContract = () => {
     const [contract, setContract] = useState({
@@ -47,8 +47,13 @@ const CreateContract = () => {
                                     <BsFillPersonFill className="icon" /> Code{' '}
                                     <input
                                         placeholder="Enter Name"
-                                        value={makeid(8)}
-                                        disabled
+                                        value={contract.code = makeid(8)}
+                                        onChange={(e) => {
+                                            setContract({
+                                                ...contract,
+                                                code: e.target.value,
+                                            })
+                                        }}
                                     />
                                 </h4>
                                 <h4>
