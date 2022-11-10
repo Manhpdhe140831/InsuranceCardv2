@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { AiOutlineFileText, AiOutlinePicture, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineBarcode, AiOutlineCalendar, AiOutlineFileText } from 'react-icons/ai';
 import { GrClose } from 'react-icons/gr';
 import '../style/editListStaff.scss';
-EditListMotorbike.propTypes = {
+EditAccident.propTypes = {
     
 };
 
-function EditListMotorbike({motorbike, handleCloseModal}) {
-    const [motorbikeDetail, setMotorbikeDetail] = useState({
-        id: motorbike?.id,
-        licensePlates: motorbike?.licensePlates,
-        customerName: motorbike?.customerName,
-        picture: motorbike?.picture,        
+function EditAccident({accident, handleCloseModal}) {
+    const [accidentDetail, setAccidentDetail] = useState({
+        code: accident?.code,
+        date: accident?.date,
+        description: accident?.description,   
       });
 
     return (
@@ -24,63 +23,62 @@ function EditListMotorbike({motorbike, handleCloseModal}) {
           <div className="row no-gutters">
             <div className="col-md-7 d-flex align-items-stretch">
               <div className="contact-wrap w-100 p-md-5 p-4">
-                <div id="form-message-warning" className="mb-4"></div>
-                <div id="form-message-success" className="mb-4">
-                  Your message was sent, thank you!
-                </div>
                 <form method="POST" id="contactForm" name="contactForm">
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
+                        <p>CODE</p>
                         <input
                           type="text"
                           className="form-control"
                           name="name"
                           id="name"
-                          value={motorbikeDetail.customerName}
+                          value={accidentDetail.code}
                           onChange={(e) =>
-                            setMotorbikeDetail({
-                              ...motorbikeDetail,
-                              customerName: e.target.value,
+                            setAccidentDetail({
+                              ...accidentDetail,
+                              code: e.target.value,
                             })
                           }
-                          placeholder="Name"
+                          placeholder="code"
                         />
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
+                      <p>DATE</p>
                         <input
-                          type="text"
+                          type="date"
                           className="form-control"
-                          name="licensePlates"
-                          id="licensePlates"
-                          value={motorbikeDetail.licensePlates}
+                          name="date"
+                          id="date"
+                          value={accidentDetail.date}
                           onChange={(e) =>
-                            setMotorbikeDetail({
-                              ...motorbikeDetail,
-                              licensePlates: e.target.value,
+                            setAccidentDetail({
+                              ...accidentDetail,
+                              date: e.target.value,
                             })
                           }
-                          placeholder="licensePlates"
+                          placeholder="date"
                         />
                       </div>
                     </div>
                     <div className="col-md-12">
                       <div className="form-group">
+                      <p>DESCRIPTION</p>
                         <input
                           type="text"
                           className="form-control"
                           name="picture"
                           id="picture"
-                          value={motorbikeDetail.picture}
+                          value={accidentDetail.description}
                           onChange={(e) =>
-                            setMotorbikeDetail({
-                              ...motorbikeDetail,
-                              picture: e.target.value,
+                            setAccidentDetail({
+                              ...accidentDetail,
+                              description: e.target.value,
                             })
                           }
-                          placeholder="urlPicture"
+                          placeholder="description"
                         />
                       </div>
                     </div>     
@@ -102,35 +100,34 @@ function EditListMotorbike({motorbike, handleCloseModal}) {
               <div className="info-wrap bg-primary w-100 p-lg-5 p-4">
                 <div className="dbox w-100 d-flex align-items-center">
                   <div className="icon d-flex align-items-center justify-content-center">
-                    <AiOutlineUser size={30} />
+                    <AiOutlineBarcode size={30} />
                   </div>
                   <div className="text pl-3">
                     <p>
-                      <span>Name:</span> {motorbikeDetail.customerName}
+                      <span>Code:</span> {accidentDetail.code}
                     </p>
                   </div>
                 </div>
+                <div className="dbox w-100 d-flex align-items-center">
+                  <div className="icon d-flex align-items-center justify-content-center">
+                    <AiOutlineCalendar size={30} />
+                  </div>
+                  <div className="text pl-3">
+                    <p>
+                      <span>Date:</span> {accidentDetail.date}
+                    </p>
+                  </div>
+                </div>                
                 <div className="dbox w-100 d-flex align-items-center">
                   <div className="icon d-flex align-items-center justify-content-center">
                     <AiOutlineFileText size={30} />
                   </div>
                   <div className="text pl-3">
                     <p>
-                      <span>licensePlates:</span> {motorbikeDetail.licensePlates}
+                      <span>Description:</span> {accidentDetail.description}
                     </p>
                   </div>
-                </div>                
-                <div className="dbox w-100 d-flex align-items-center">
-                  <div className="icon d-flex align-items-center justify-content-center">
-                    <AiOutlinePicture size={30} />
-                  </div>
-                  <div className="text pl-3">
-                    <p>
-                      {/* {motorbikeDetail.picture} */}
-                      <img className="img-motorbike" src={motorbikeDetail.picture} alt="" />
-                    </p>
-                  </div>
-                </div>
+                </div>   
                 
               
               </div>
@@ -142,4 +139,4 @@ function EditListMotorbike({motorbike, handleCloseModal}) {
     );
 }
 
-export default EditListMotorbike;
+export default EditAccident;

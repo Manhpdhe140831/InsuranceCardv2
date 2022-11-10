@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import '../style/editListStaff.scss';
+import { AiOutlineLike, AiOutlineMail, AiOutlinePhone, AiOutlineUser } from 'react-icons/ai';
 import { BsGenderAmbiguous } from 'react-icons/bs';
-import { AiOutlineMail } from 'react-icons/ai';
-import { AiOutlineUser } from 'react-icons/ai';
-import { AiOutlinePhone } from 'react-icons/ai';
-import { SlLocationPin } from 'react-icons/sl';
-import { AiOutlineLike } from 'react-icons/ai';
-import { RiCake2Line } from 'react-icons/ri';
 import { GrClose } from 'react-icons/gr';
+import { RiCake2Line } from 'react-icons/ri';
+import { SlLocationPin } from 'react-icons/sl';
+import '../style/editListStaff.scss';
 EditListCustomerVip.propTypes = {};
 
 function EditListCustomerVip({ customer, handleCloseModal }) {

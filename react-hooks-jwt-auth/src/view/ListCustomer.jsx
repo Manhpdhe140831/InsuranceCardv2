@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
-import { BsSearch } from 'react-icons/bs';
+import React, { useEffect, useState } from 'react';
+import UserService from "../services/user.service";
+import '../style/editListStaff.scss';
+import '../style/listContractCustomer.scss';
+import CreateUser from './CreateUser';
 import Customer from './Customer';
 import EditListCustomer from './EditListCustomer';
 import ListContractCustomer from './ListContractCustomer';
-import '../style/listContractCustomer.scss';
-import '../style/editListStaff.scss';
-import UserService from "../services/user.service";
-import CreateUser from './CreateUser';
+import '../style/listStaff.scss';
 
 ListCustomer.propTypes = {
   data: PropTypes.array,
@@ -38,7 +38,7 @@ ListCustomer.defaultProps = {
   ],
 };
 function ListCustomer({ data }) {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState(data);
   useEffect(() => {
     UserService.getAllUser().then(
       (response) => {
@@ -48,17 +48,7 @@ function ListCustomer({ data }) {
 
   }, []);
   console.log(content)
-  const [searchStr, setSearchStr] = useState('');
-  const [searchList, setSearchList] = useState(data);
-  const listData = data;
-  // const handleSearch = () => {
-  //   setSearchList(
-  //     content.filter((customer) =>
-  //       customer.name.toLowerCase().includes(searchStr.toLowerCase())
-  //     )
-  //   );
-  // };
-  console.log(searchList)
+
   const [isShow, setIsShow] = useState(false);
   const [isShowContract, setIsShowContract] = useState(false);
   const [customerTemp, setCustomerTemp] = useState(null);
@@ -73,27 +63,10 @@ function ListCustomer({ data }) {
     <React.Fragment>
       <div className="container_liststaff">
         <div className="container-search_liststaff">
-
-
           <button className="button-create"
             onClick={() => { setCreateUser(true) }}>
             Create staff
-          </button>
-
-
-
-          <div className="main_search">
-            <input
-              className="input_liststaff"
-              value={searchStr}
-              onChange={(e) => setSearchStr(e.target.value)}
-            />{' '}
-            <button className="button-search_liststaff"
-            //  onClick={handleSearch}
-            >
-              <BsSearch style={{ color: 'white' }} size={20} />
-            </button>
-          </div>
+          </button>         
         </div>
         <div className='tableContainer'>
           <table className="content-table">
@@ -111,7 +84,7 @@ function ListCustomer({ data }) {
               </tr>
             </thead>
             <tbody>
-              {listData.map((customer) => (
+              {content.map((customer) => (
                 <Customer
                   key={customer.id}
                   customer={customer}

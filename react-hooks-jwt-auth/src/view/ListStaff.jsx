@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../style/listStaff.scss';
-import Staff from './Staff';
-import { BsSearch } from 'react-icons/bs';
 import EditListStaff from './EditListStaff';
+import Staff from './Staff';
 // import staffApi from '../api/postApi';
 // import Staff from './Staff';
 ListStaff.propTypes = {
@@ -42,16 +41,7 @@ ListStaff.defaultProps = {
 };
 
 function ListStaff({ data }) {
-  const [searchStr, setSearchStr] = useState('');
-  const [searchList, setSearchList] = useState(data);
-  const listData = data;
-  const handleSearch = () => {
-    setSearchList(
-      listData.filter((staff) =>
-        staff.name.toLowerCase().includes(searchStr.toLowerCase())
-      )
-    );
-  };
+  const [content, setContent] = useState(data);
 
   const [isShow, setIsShow] = useState(false);
   const [staffTemp, setStaffTemp] = useState(null);
@@ -63,17 +53,7 @@ function ListStaff({ data }) {
   return (
     <React.Fragment>
       <div className="container_liststaff">
-        <div className="container-search_liststaff">
-          <div className="main_search">
-            <input
-              className="input_liststaff"
-              value={searchStr}
-              onChange={(e) => setSearchStr(e.target.value)}
-            />{' '}
-            <button className="button-search_liststaff" onClick={handleSearch}>
-              <BsSearch style={{ color: 'white' }} size={20} />
-            </button>
-          </div>
+        <div className="container-search_liststaff">          
         </div>
         <table className="content-table">
           <thead>
@@ -90,7 +70,7 @@ function ListStaff({ data }) {
             </tr>
           </thead>
           <tbody>
-            {searchList.map((staff) => (
+            {content.map((staff) => (
               <Staff
                 key={staff.id}
                 staff={staff}

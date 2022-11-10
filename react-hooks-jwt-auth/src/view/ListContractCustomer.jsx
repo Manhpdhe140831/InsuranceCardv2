@@ -4,6 +4,7 @@ import Contract from './Contract';
 import { BsSearch } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import '../style/listContractCustomer.scss';
+import '../style/listStaff.scss';
 ListContractCustomer.propTypes = {
   data: PropTypes.array,
 };
@@ -25,17 +26,7 @@ ListContractCustomer.defaultProps = {
   ],
 };
 function ListContractCustomer({ data, handleCloseModal }) {
-  const [searchStr, setSearchStr] = useState('');
-  const [searchList, setSearchList] = useState(data);
-  const listData = data;
-  const handleSearch = () => {
-    setSearchList(
-      listData.filter((contract) =>
-        contract.contractCode.toLowerCase().includes(searchStr.toLowerCase())
-      )
-    );
-  };
-
+  const [content, setContent] = useState(data);
   return (
     <React.Fragment>
       <div className="container_listcontract-customer">
@@ -44,20 +35,7 @@ function ListContractCustomer({ data, handleCloseModal }) {
             <GrClose size={34} />
           </div>
           <div className="container-search_listcontract-customer">
-            <h3>customerName</h3>
-            <div className="main_search">
-              <input
-                className="input_liststaff"
-                value={searchStr}
-                onChange={(e) => setSearchStr(e.target.value)}
-              />{' '}
-              <button
-                className="button-search_liststaff"
-                onClick={handleSearch}
-              >
-                <BsSearch style={{ color: 'white' }} size={20} />
-              </button>
-            </div>
+            <h3>customerName</h3>            
           </div>
           <table className="content-table">
             <thead>
@@ -70,7 +48,7 @@ function ListContractCustomer({ data, handleCloseModal }) {
               </tr>
             </thead>
             <tbody>
-              {searchList.map((contract) => (
+              {content.map((contract) => (
                 <Contract
                   key={contract.contractCode}
                   contract={contract}

@@ -27,7 +27,7 @@ ListContract.defaultProps = {
   ],
 };
 function ListContract({ data, handleCloseModal }) {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState(data);
   useEffect(() => {
     ContractService.getContractByAdmin().then(
       (response) => {
@@ -37,17 +37,7 @@ function ListContract({ data, handleCloseModal }) {
 
   }, []);
   console.log(content)
-  const [searchStr, setSearchStr] = useState('');
-  const [searchList, setSearchList] = useState(data);
-  const [newContract, setNewContract] = useState(false)
-  const listData = data;
-  const handleSearch = () => {
-    setSearchList(
-      listData.filter((contract) =>
-        contract.contractCode.toLowerCase().includes(searchStr.toLowerCase())
-      )
-    );
-  };
+  const [newContract, setNewContract] = useState(false)  
 
   return (
     <React.Fragment>
@@ -55,20 +45,7 @@ function ListContract({ data, handleCloseModal }) {
       <div className="container_listcontract">
         {/* <a className="button-create-contract" href="">Create New Contract</a> */}
         <div className="container-search_liststaff">
-          <button className='button-create' onClick={() => { setNewContract(true) }}>Create New Contract</button>
-          <div className="main_search">
-            <input
-              className="input_liststaff"
-              value={searchStr}
-              onChange={(e) => setSearchStr(e.target.value)}
-            />{' '}
-            <button
-              className="button-search_liststaff"
-              onClick={handleSearch}
-            >
-              <BsSearch style={{ color: 'white' }} size={20} />
-            </button>
-          </div>
+          <button className='button-create' onClick={() => { setNewContract(true) }}>Create New Contract</button>          
         </div>
         <table className="content-table">
           <thead>
@@ -81,7 +58,7 @@ function ListContract({ data, handleCloseModal }) {
             </tr>
           </thead>
           <tbody>
-            {searchList.map((contract) => (
+            {content.map((contract) => (
               <Contract
                 key={contract.contractCode}
                 contract={contract}

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { BsSearch } from 'react-icons/bs';
+import '../style/listStaff.scss';
 import EditListMotorbike from './EditListMotorbike';
 import Motorbike from './Motorbike';
-import '../style/listStaff.scss';
 ListMotorbike.propTypes = {};
 ListMotorbike.defaultProps = {
   data: [
@@ -22,17 +21,7 @@ ListMotorbike.defaultProps = {
 };
 
 function ListMotorbike({ data }) {
-  const [searchStr, setSearchStr] = useState('');
-  const [searchList, setSearchList] = useState(data);
-  const listData = data;
-  const handleSearch = () => {
-    setSearchList(
-      listData.filter((motorbike) =>
-        motorbike.customerName.toLowerCase().includes(searchStr.toLowerCase())
-      )
-    );
-  };
-
+  const [content, setContent] = useState(data);
   const [isShow, setIsShow] = useState(false);
   const [motorbikeTemp, setMotorbikeTemp] = useState(null);
 
@@ -43,17 +32,7 @@ function ListMotorbike({ data }) {
   return (
     <React.Fragment>
       <div className="container_liststaff">
-        <div className="container-search_liststaff">
-          <div className="main_search">
-            <input
-              className="input_liststaff"
-              value={searchStr}
-              onChange={(e) => setSearchStr(e.target.value)}
-            />{' '}
-            <button className="button-search_liststaff" onClick={handleSearch}>
-              <BsSearch style={{ color: 'white' }} size={20} />
-            </button>
-          </div>
+        <div className="container-search_liststaff">          
         </div>
         <table className="content-table">
           <thead>
@@ -66,7 +45,7 @@ function ListMotorbike({ data }) {
             </tr>
           </thead>
           <tbody>
-            {searchList.map((motorbike) => (
+            {content.map((motorbike) => (
               <Motorbike
                 key={motorbike.id}
                 motorbike={motorbike}
