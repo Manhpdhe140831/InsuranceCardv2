@@ -42,8 +42,9 @@ public class CompensationServiceImpl implements CompensationService {
         accident.setImage(accidentDto.getImage());
         accident.setDate(accidentDto.getDate());
         accident.setDescription(accidentDto.getDescription());
-        accident.setStatus(accidentDto.isStatus());
+        accident.setStatus(true);
         accident.setUser(accidentDto.getUser());
+
 
         Compensation compensation = new Compensation();
         compensation.setCode(code);
