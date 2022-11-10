@@ -176,7 +176,7 @@ const CreateUser = ({ setCreateUser }) => {
                  onClick={() => handleOnlickCreate()}
                           type="submit"
                           value="Create"
-                          className="btn-input-createstaff"
+                          className="btn-input-create-vip"
                         />
                 <button
                   className="closeModal"

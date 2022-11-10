@@ -33,7 +33,7 @@
   padding-left: 10px;
 }
 
-.container-create-contract input:not([type='radio']) {
+.container-create-contract input:not([type='radio'],.btn-input-create-vip) {
   display: inline-block;
   border: 1px solid #d1d5db;
   background-color: #f9fafb;
@@ -114,4 +114,19 @@ h4{
   width: 100vw;
   position: fixed;
   animation: fadeIn ease-in 0.4s;
+}
+.btn-input-create-vip{
+  height: 50px !important;
+  width: 30% !important;
+  border: 2px solid rgb(0, 0, 0);
+  background: #6da5da;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  box-sizing:border-box;
+  border-radius: 3px ;
+  height:60%   
 }
