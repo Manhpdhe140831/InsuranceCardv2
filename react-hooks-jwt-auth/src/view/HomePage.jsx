@@ -15,7 +15,7 @@ function HomePage(props) {
         <React.Fragment>
 
 
-            <img src='https://financialfield.vn/wp-content/uploads/2021/06/moto-web-banner.jpg' alt='' style={{ height: "500px", width: "100%", marginTop: "40px" }} />
+            <img src='https://financialfield.vn/wp-content/uploads/2021/06/moto-web-banner.jpg' alt='' style={{ height: "500px", width: "100%", marginTop: "40px", zIndex:"-1" }} />
 
             <Container sx={{ marginBottom: "40px", marginTop:"40px"}}>
                 <Grid container spacing={2}>
