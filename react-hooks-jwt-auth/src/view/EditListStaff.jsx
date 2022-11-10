@@ -17,7 +17,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
     id: customer?.id,
     name: customer?.name,
     gender: customer?.gender,
-    birthday: customer?.birthday,
+    dateOfBirth: customer?.dateOfBirth,
     folk: customer?.folk,
     phone: customer?.phone,
     email: customer?.email,
@@ -167,11 +167,11 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                         className="form-control"
                         name="birthday"
                         id="birthday"
-                        value={profileCustomer.birthday}
+                        value={profileCustomer.dateOfBirth}
                         onChange={(e) =>
                           setProfileCustomer({
                             ...profileCustomer,
-                            birthday: e.target.value,
+                            dateOfBirth: e.target.value,
                           })
                         }
                         placeholder="Birthday"
@@ -270,7 +270,7 @@ function EditListCustomerVip({ customer, handleCloseModal }) {
                   </div>
                   <div className="text pl-3">
                     <p>
-                      <span>Birthday:</span> {profileCustomer.birthday}
+                      <span>Birthday:</span> {profileCustomer.dateOfBirth}
                     </p>
                   </div>
                 </div>

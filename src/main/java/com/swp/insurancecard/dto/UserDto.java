@@ -31,7 +31,7 @@ public class UserDto {
         this.username = user.getUsername();
         this.email = user.getEmail();
         this.name = user.getName();
-        this.phone = user.getName();
+        this.phone = user.getPhone();
         this.dateOfBirth = user.getDateOfBirth();
         this.gender = user.getGender();
         this.address = user.getAddress();
