@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../style/createContract.scss";
+import { GrClose } from 'react-icons/gr';
 import {
   BsFillPersonFill,
   BsFillCalendarEventFill,
@@ -18,23 +19,23 @@ import UserService from "../services/user.service";
 //     return result;
 // }
 
-const CreateContract = ({ setNewContract }) => {
-  const [contract, setContract] = useState({
-    code: "",
-    beginDate: "",
-    endDate: "",
-    priceContract: "",
-    FPF: "",
-    SPF: "",
-    FPFDate: "",
-    SPFDate: "",
-    contractDate: "",
-    licenseplate: "",
-    enginenumber: "",
-    chassisnumber: "",
-    vehicletype: "",
+const EditContractVip = ({ contract ,handleCloseModal }) => {
+  const [contractDetail, setContractDetail] = useState({
+    code: contract.code,
+    beginDate: contract.beginDate,
+    endDate: contract.endDate,
+    priceContract: contract.priceContract,
+    fpf: contract.fpf,
+    spf: contract.spf,
+    fpfdate: contract.fpfdate,
+    spfdate: contract.spfdate,
+    contractDate: contract.contractDate,
+    license: contract.license,
+    engineNumber: contract.engineNumber,
+    frameNumber: contract.frameNumber,
+    model: contract.model,
     accountDto: {
-      id: 0,
+      id: contract.accountDto.id,
     },
   });
 
@@ -56,11 +57,7 @@ const CreateContract = ({ setNewContract }) => {
   }, []);
   console.log(customer);
 
-  const handleClickCreate = () => {
-    UserService.createContract(contract).then(() => {
-      console.log("create success");
-    });
-  };
+
 
   return (
     <div>
@@ -69,7 +66,9 @@ const CreateContract = ({ setNewContract }) => {
         <div className="container-create-contract">
           <form action="">
             <div className="main-create-contract">
-              <button onClick={() => setNewContract(false)}> x </button>
+            <div className="icon-close" onClick={handleCloseModal}>
+            <GrClose size={34} />
+          </div>
               <h1>Create Contract</h1>
               <div className="Profile">
                 <div className="flex-container-profile">
@@ -80,7 +79,7 @@ const CreateContract = ({ setNewContract }) => {
                         placeholder="Enter Name"
                         value={contract.code}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             code: e.target.value,
                           });
@@ -94,7 +93,7 @@ const CreateContract = ({ setNewContract }) => {
                         placeholder="Enter begin date"
                         value={contract.beginDate}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             beginDate: e.target.value,
                           });
@@ -108,7 +107,7 @@ const CreateContract = ({ setNewContract }) => {
                         value={contract.endDate}
                         placeholder="Enter end date"
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             endDate: e.target.value,
                           });
@@ -122,7 +121,7 @@ const CreateContract = ({ setNewContract }) => {
                         placeholder="Enter price contract"
                         value={contract.priceContract}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             priceContract: parseFloat(e.target.value),
                           });
@@ -134,9 +133,9 @@ const CreateContract = ({ setNewContract }) => {
                       <input
                         type="text"
                         placeholder="Enter First Payment Fee"
-                        value={contract.FPF}
+                        value={contract.fpf}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             FPF: parseFloat(e.target.value),
                           });
@@ -148,9 +147,9 @@ const CreateContract = ({ setNewContract }) => {
                       <input
                         type="text"
                         placeholder="Enter Engine Number"
-                        value={contract.enginenumber}
+                        value={contract.engineNumber}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             enginenumber: e.target.value,
                           });
@@ -163,9 +162,9 @@ const CreateContract = ({ setNewContract }) => {
                       <input
                         type="text"
                         placeholder="Enter Vehicle type"
-                        value={contract.vehicletype}
+                        value={contract.model}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             vehicletype: e.target.value,
                           });
@@ -179,9 +178,9 @@ const CreateContract = ({ setNewContract }) => {
                       <input
                         type="text"
                         placeholder="Enter Second Payment Fee"
-                        value={contract.SPF}
+                        value={contract.spf}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             SPF: parseFloat(e.target.value),
                           });
@@ -192,9 +191,9 @@ const CreateContract = ({ setNewContract }) => {
                       <BsCalendar2DateFill className="icon" /> FPF Date{" "}
                       <input
                         type="date"
-                        value={contract.FPFDate}
+                        value={contract.fpfdate}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             FPFDate: e.target.value,
                           });
@@ -206,9 +205,9 @@ const CreateContract = ({ setNewContract }) => {
                       <input
                         type="date"
                         placeholder="enter email"
-                        value={contract.SPFDate}
+                        value={contract.spfdate}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             SPFDate: e.target.value,
                           });
@@ -222,7 +221,7 @@ const CreateContract = ({ setNewContract }) => {
                         placeholder="enter email"
                         value={contract.contractDate}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             contractDate: e.target.value,
                           });
@@ -235,9 +234,9 @@ const CreateContract = ({ setNewContract }) => {
                       <input
                         type="text"
                         placeholder="Enter Plate Number"
-                        value={contract.licenseplate}
+                        value={contract.license}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             licenseplate: e.target.value,
                           });
@@ -249,9 +248,9 @@ const CreateContract = ({ setNewContract }) => {
                       <input
                         type="text"
                         placeholder="Enter Chassis Number"
-                        value={contract.chassisnumber}
+                        value={contract.frameNumber}
                         onChange={(e) => {
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             chassisnumber: e.target.value,
                           });
@@ -263,7 +262,7 @@ const CreateContract = ({ setNewContract }) => {
                       <br />
                       <select
                         onChange={(e) =>
-                          setContract({
+                          setContractDetail({
                             ...contract,
                             accountDto: { id: e.target.value },
                           })
@@ -280,9 +279,9 @@ const CreateContract = ({ setNewContract }) => {
 
               <div className="btn-create-contract">
                 <input
-                  onClick={() => handleClickCreate()}
+                  // onClick={() => handleClickCreate()}
                   type="submit"
-                  value="Create"
+                  value="Update"
                   className="btn-input-create-vip"
                 />
                 <button>Cancel</button>
@@ -294,4 +293,4 @@ const CreateContract = ({ setNewContract }) => {
     </div>
   );
 };
-export default CreateContract;
+export default EditContractVip;

@@ -21,11 +21,15 @@ function Contract({ contract, setIsShow, setContractTemp }) {
 
         <td>
           <AiFillEye size={18} style={{ cursor: 'pointer' }} />
+
+          
           <BsFillPencilFill
             onClick={() => handleEdit()}
             size={13}
             style={{ marginLeft: '5px', cursor: 'pointer' }}
           />
+
+
           <BsFillTrashFill
             size={13}
             style={{ marginLeft: '5px', cursor: 'pointer' }}
