@@ -21,7 +21,10 @@ const CreateAccident = ({ setCreateAccident }) => {
   const [accident, setaccident] = useState({
     code: "",
     date:"",
-    description:""  
+    description:"",
+    accountDto: {
+      id: 0,
+    },  
   });
 
   const [customer, setCustomer] = useState([
@@ -73,7 +76,7 @@ const CreateAccident = ({ setCreateAccident }) => {
                       />
                     </h4>
                     <h4>
-                      <BsFillCalendarEventFill className="icon" /> Begin date{" "}
+                      <BsFillCalendarEventFill className="icon" /> Date{" "}
                       <input
                         type="date"
                         placeholder="date"
@@ -87,11 +90,11 @@ const CreateAccident = ({ setCreateAccident }) => {
                       />
                     </h4>
                     <h4>
-                      <BsFillCalendarEventFill className="icon" /> description{" "}
+                      <BsFillCalendarEventFill className="icon" /> Description{" "}
                       <input
-                        type="date"
+                        type="text"
                         value={accident.description}
-                        placeholder="Enter end date"
+                        placeholder="description"
                         onChange={(e) => {
                           setaccident({
                             ...accident,
@@ -100,6 +103,22 @@ const CreateAccident = ({ setCreateAccident }) => {
                         }}
                       />
                     </h4>
+                    <h4>
+                      <BsFillPersonFill className="icon" /> Customer{" "}
+                      <select
+                        onChange={(e) =>
+                          setaccident({
+                            ...accident,
+                            accountDto: { id: e.target.value },
+                          })
+                        }
+                      >
+                        {customer.map((customers) => (
+                          <option value={customers.id}>{customers.name}</option>
+                        ))}
+                      </select>
+                    </h4>
+                   
                   </div>
                 </div>
               </div>
