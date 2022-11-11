@@ -62,7 +62,6 @@ public class AccidentServiceImpl implements AccidentService {
             accident.setImage(accidentDto.getImage());
             accident.setDate(accidentDto.getDate());
             accident.setDescription(accident.getDescription());
-            accident.setStatus(false);
             if (null != accidentDto.getUser()){
                 User user = null;
                 Optional<User> optional = userRepository.findById(accidentDto.getUser().getId());
@@ -95,7 +94,6 @@ public class AccidentServiceImpl implements AccidentService {
                 accident.setImage(accidentDto.getImage());
                 accident.setDate(accidentDto.getDate());
                 accident.setDescription(accidentDto.getDescription());
-                accident.setStatus(accidentDto.isStatus());
                 if (null != accidentDto.getUser()){
                     User user = null;
                     Optional<User> optional = userRepository.findById(accidentDto.getUser().getId());

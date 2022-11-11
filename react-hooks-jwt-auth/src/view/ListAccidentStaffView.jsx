@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../style/listContractCustomer.scss';
 import '../style/listStaff.scss';
 import AccidentStaffView from './AccidentStaffView';
 import EditAccident from './EditAccident';
 import CreateAccident from './createAccident';
+import UserService from "../services/user.service";
 
 ListAccidentStaffView.propTypes = {
   data: PropTypes.array,
@@ -30,6 +31,14 @@ function ListAccidentStaffView({ data }) {
   const [isShow, setIsShow] = useState(false);
   const [isShowContract, setIsShowContract] = useState(false);
   const [accidentTemp, setAccidentTemp] = useState(null);
+  useEffect(() => {
+    UserService.getAccident().then(
+      (response) => {
+        setContent(response.data)
+      }
+    )
+  }, []);
+  console.log(content);
 
   const handleCloseModal = () => {
     setIsShow(false);
@@ -40,7 +49,7 @@ function ListAccidentStaffView({ data }) {
     <React.Fragment>
       <div className="container_liststaff">
         <div className="container-search_liststaff">
-          <button className="button-create" onClick={() => {setReportAccident(true)}}>
+          <button className="button-create" onClick={() => { setReportAccident(true) }}>
             Create Accident
           </button>
         </div>
@@ -68,11 +77,11 @@ function ListAccidentStaffView({ data }) {
         </table>
         {/* style={isShow?{display:"flex"}:{display:"none"}} */}
         {isShow && (
-          <div 
-           className="modalCst"
+          <div
+            className="modalCst"
           >
-            <div 
-             className="modal-edit"
+            <div
+              className="modal-edit"
             >
               <EditAccident
                 accident={accidentTemp}
@@ -83,7 +92,7 @@ function ListAccidentStaffView({ data }) {
         )}
       </div>
 
-          {reportAccident && <CreateAccident setCreateAccident={setReportAccident}/>}
+      {reportAccident && <CreateAccident setCreateAccident={setReportAccident} />}
     </React.Fragment>
   );
 }

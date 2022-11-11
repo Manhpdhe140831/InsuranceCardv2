@@ -19,7 +19,6 @@ public class AccidentDto {
     private String image;
     private Date date;
     private String description;
-    private boolean status;
     private User user;
 
     public AccidentDto(Accident accident){
@@ -28,7 +27,6 @@ public class AccidentDto {
         this.setImage(accident.getImage());
         this.setCode(accident.getCode());
         this.setDescription(accident.getDescription());
-        this.setStatus(accident.isStatus());
         if (accident.getUser() != null){
             user = new User(accident.getUser());
         }

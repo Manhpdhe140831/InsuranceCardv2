@@ -23,7 +23,6 @@ public class Accident {
     private String image;
     private Date date;
     private String description;
-    private boolean status;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;

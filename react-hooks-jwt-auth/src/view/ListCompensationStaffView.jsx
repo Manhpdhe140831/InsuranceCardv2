@@ -4,7 +4,7 @@ import '../style/listContractCustomer.scss';
 import CompensationStaffView from './CompensationStaffView';
 import EditCompensation from './EditCompensation';
 import '../style/listStaff.scss';
-import CreateCompensation from './CreateCompensation';
+import CreateCompensation from './createCompensation';
 
 ListCompensation.propTypes = {
   data: PropTypes.array,

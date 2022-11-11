@@ -3,7 +3,7 @@
 import "../style/accidentModal.scss";
 import { useEffect, useState } from "react";
 import {
-    BsFillCalendarEventFill, BsFillPersonFill
+  BsFillCalendarEventFill, BsFillPersonFill
 } from "react-icons/bs";
 import UserService from "../services/user.service";
 import "../style/createContract.scss";
@@ -20,11 +20,11 @@ import "../style/createContract.scss";
 const CreateAccident = ({ setCreateAccident }) => {
   const [accident, setaccident] = useState({
     code: "",
-    date:"",
-    description:"",
+    date: "",
+    description: "",
     accountDto: {
       id: 0,
-    },  
+    },
   });
 
   const [customer, setCustomer] = useState([
@@ -44,9 +44,10 @@ const CreateAccident = ({ setCreateAccident }) => {
     });
   }, []);
   console.log(customer);
+  console.log(accident);
 
   const handleClickCreate = () => {
-    UserService.createaccident(accident).then(() => {
+    UserService.createAccident(accident).then(() => {
       console.log("create success");
     });
   };
@@ -118,7 +119,7 @@ const CreateAccident = ({ setCreateAccident }) => {
                         ))}
                       </select>
                     </h4>
-                   
+
                   </div>
                 </div>
               </div>

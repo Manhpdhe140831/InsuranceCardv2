@@ -40,6 +40,14 @@ const updateContract = (contract) => {
   return axios.put(API_USER + "contract/update", contract, { headers: authHeader() })
 }
 
+const createAccident = (accident) => {
+  return axios.post(API_USER + "accident/save", accident, { headers: authHeader() })
+}
+
+const getAccident = () => {
+  return axios.get(API_USER + "accident", { headers: authHeader() })
+}
+
 const UserService = {
   getPublicContent,
   getUserBoard,
@@ -49,7 +57,9 @@ const UserService = {
   updateUser,
   getCustomer,
   createContract,
-  updateContract
+  updateContract,
+  createAccident,
+  getAccident
 };
 
 export default UserService;
