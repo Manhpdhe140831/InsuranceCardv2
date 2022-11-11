@@ -65,4 +65,11 @@ public class ContractController {
         List<ContractDto> list = contractService.getContractByAccountID(id);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/renew")
+    @PreAuthorize("hasRole('CUSTOMER')")
+    public ResponseEntity<?> renew(@RequestParam("id") Long id, @RequestBody ContractDto contractDto ){
+        ContractDto contract = contractService.renewContract(id);
+        return new ResponseEntity<>(contract, HttpStatus.OK);
+    }
 }

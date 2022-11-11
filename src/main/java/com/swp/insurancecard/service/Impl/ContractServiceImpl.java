@@ -163,8 +163,7 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public ContractDto renewContract(ContractDto contractDto, Long id) {
-        if (null != contractDto) {
+    public ContractDto renewContract( Long id) {
             Contract contractObj = null;
             if (null != id) {
                 Optional<Contract> optional = repository.findById(id);
@@ -185,23 +184,16 @@ public class ContractServiceImpl implements ContractService {
                 }
                 if (currentDate.compareTo(contractObj.getEndDate()) > 0) {
 
-                    contractObj.setCode(contractDto.getCode());
-                    contractObj.setBeginDate(contractDto.getBeginDate());
-                    contractObj.setEndDate(contractDto.getEndDate());
-                    contractObj.setPriceContract(contractDto.getPriceContract());
-                    contractObj.setFPF(contractDto.getFPF());
-                    contractObj.setSPF(contractDto.getSPF()+ 1000000);
-                    contractObj.setFPFDate(contractDto.getFPFDate());
-                    contractObj.setSPFDate(contractDto.getSPFDate());
-                    contractObj.setContractDate(contractDto.getContractDate());
+                    contractObj.setSPF(contractObj.getSPF() + 1000000);
+
                     
-                    if (null != contractDto.getAccountDto()) {
-                        User account = null;
-                        Optional<User> optional = accountRepository.findById(contractDto.getAccountDto().getId());
-                        if (optional.isPresent()) {
-                            account = optional.get();
-                        }
-                        contractObj.setAccount(account);
+//                    if (null != contractDto.getAccountDto()) {
+//                        User account = null;
+//                        Optional<User> optional = accountRepository.findById(contractDto.getAccountDto().getId());
+//                        if (optional.isPresent()) {
+//                            account = optional.get();
+//                        }
+//                        contractObj.setAccount(account);
                         contractObj = repository.save(contractObj);
                         return new ContractDto(contractObj);
                     } else {
@@ -209,8 +201,8 @@ public class ContractServiceImpl implements ContractService {
                     }
 
                 }
-            }
-        }
+
+
         return null;
     }
 
